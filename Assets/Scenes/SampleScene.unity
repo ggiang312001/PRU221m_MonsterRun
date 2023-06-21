@@ -657,7 +657,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be14995593c477e4aa0b38832bda01ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Mine: {fileID: 0}
+  Mine: {fileID: 1927003967465678277, guid: 7781ee7d6f001ad49b811e39dc503fdc, type: 3}
   poolSize: 5
   pool: []
 --- !u!4 &1209803916
@@ -862,6 +862,7 @@ MonoBehaviour:
   Thorn: {fileID: 8467610239499939980, guid: 5ee3c938ed76315479541c3abea3f148, type: 3}
   ThornPool: {fileID: 710591951}
   WoodBoxPool: {fileID: 673927229}
+  MinePool: {fileID: 1209803915}
 --- !u!1001 &4849303593676644799
 PrefabInstance:
   m_ObjectHideFlags: 0
