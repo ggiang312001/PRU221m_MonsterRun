@@ -646,6 +646,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WoodBox (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 8639888284162373115, guid: 19765f47d0f081543b33fc1630e7872d, type: 3}
+      propertyPath: m_TagString
+      value: WoodBox
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19765f47d0f081543b33fc1630e7872d, type: 3}
 --- !u!1001 &661833368
@@ -706,6 +710,10 @@ PrefabInstance:
     - target: {fileID: 8639888284162373115, guid: 19765f47d0f081543b33fc1630e7872d, type: 3}
       propertyPath: m_Name
       value: WoodBox (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8639888284162373115, guid: 19765f47d0f081543b33fc1630e7872d, type: 3}
+      propertyPath: m_TagString
+      value: WoodBox
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19765f47d0f081543b33fc1630e7872d, type: 3}
@@ -831,6 +839,60 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ee3c938ed76315479541c3abea3f148, type: 3}
+--- !u!1 &890473168 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4849303593473966755, guid: 636470bfe233cff4f8937c1ec7d68550, type: 3}
+  m_PrefabInstance: {fileID: 4849303593676644799}
+  m_PrefabAsset: {fileID: 0}
+--- !u!60 &890473175
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 890473168}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.65, y: 1.04}
+    newSize: {x: 0.65, y: 1.04}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.035, y: -0.34}
+      - {x: 0.005, y: -0.35}
+      - {x: 0.105, y: -0.29}
+      - {x: 0.035, y: -0.07}
+      - {x: 0.205, y: -0.06}
+      - {x: 0.285, y: 0.03}
+      - {x: 0.325, y: 0.14}
+      - {x: 0.325, y: 0.29999998}
+      - {x: 0.24499999, y: 0.48}
+      - {x: 0.195, y: 0.52}
+      - {x: -0.065, y: 0.52}
+      - {x: -0.175, y: 0.5}
+      - {x: -0.295, y: 0.37}
+      - {x: -0.315, y: 0.29999998}
+      - {x: -0.315, y: 0.11}
+      - {x: -0.225, y: -0.049999997}
+      - {x: -0.285, y: -0.099999994}
+      - {x: -0.315, y: -0.35}
+      - {x: -0.315, y: -0.44}
+      - {x: -0.295, y: -0.52}
+      - {x: -0.074999996, y: -0.52}
+      - {x: -0.065, y: -0.51}
+      - {x: -0.055, y: -0.35}
+      - {x: -0.055, y: -0.31}
 --- !u!1001 &1073193878
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1190,6 +1252,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WoodBox (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 8639888284162373115, guid: 19765f47d0f081543b33fc1630e7872d, type: 3}
+      propertyPath: m_TagString
+      value: WoodBox
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19765f47d0f081543b33fc1630e7872d, type: 3}
 --- !u!1001 &1970707168
@@ -1250,6 +1316,10 @@ PrefabInstance:
     - target: {fileID: 8639888284162373115, guid: 19765f47d0f081543b33fc1630e7872d, type: 3}
       propertyPath: m_Name
       value: WoodBox (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8639888284162373115, guid: 19765f47d0f081543b33fc1630e7872d, type: 3}
+      propertyPath: m_TagString
+      value: WoodBox
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19765f47d0f081543b33fc1630e7872d, type: 3}
@@ -1312,6 +1382,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WoodBox
       objectReference: {fileID: 0}
+    - target: {fileID: 8639888284162373115, guid: 19765f47d0f081543b33fc1630e7872d, type: 3}
+      propertyPath: m_TagString
+      value: WoodBox
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19765f47d0f081543b33fc1630e7872d, type: 3}
 --- !u!1001 &4849303593676644799
@@ -1321,6 +1395,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4849303593473966749, guid: 636470bfe233cff4f8937c1ec7d68550, type: 3}
+      propertyPath: runSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4849303593473966751, guid: 636470bfe233cff4f8937c1ec7d68550, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4849303593473966752, guid: 636470bfe233cff4f8937c1ec7d68550, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -1373,5 +1455,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4849303593473966748, guid: 636470bfe233cff4f8937c1ec7d68550, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 636470bfe233cff4f8937c1ec7d68550, type: 3}
