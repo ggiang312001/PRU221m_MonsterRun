@@ -6,10 +6,10 @@ using UnityEngine;
 
 public class GeneratorTrap : MonoBehaviour
 {
-    public GameObject WoodBox, Thorn;
     public ThornPool ThornPool;
     public WoodBoxPool WoodBoxPool;
     public MinePool MinePool;
+    public FirePool FirePool;
 
     // Start is called before the first frame update
     void Start()
@@ -44,8 +44,9 @@ public class GeneratorTrap : MonoBehaviour
     {
         List<GameObject> listThorns = ThornPool.pool;
         List<GameObject> listWoodBoxs = WoodBoxPool.pool;
-        List<GameObject> listMine = MinePool.pool;
-        int random = UnityEngine.Random.Range(1,4);
+        List<GameObject> listMines = MinePool.pool;
+        List<GameObject> listFires = FirePool.pool;
+        int random = UnityEngine.Random.Range(1,5);
         if(random == 1)
         {
             int count = 0;
@@ -58,9 +59,9 @@ public class GeneratorTrap : MonoBehaviour
             }
             if (count != 0)
             {
-                GameObject monster = ThornPool.GetObject(); // Lấy trap từ pool
-                monster.transform.position = new Vector3(transform.position.x, 2,0); // Set vị trí của trap
-                monster.SetActive(true); // Hiển thị trap lên màn hình
+                GameObject thorn = ThornPool.GetObject(); // Lấy trap từ pool
+                thorn.transform.position = new Vector3(transform.position.x, 2,0); // Set vị trí của trap
+                thorn.SetActive(true); // Hiển thị trap lên màn hình
                 count = 0;
             }
         }
@@ -76,15 +77,16 @@ public class GeneratorTrap : MonoBehaviour
             }
             if (count != 0)
             {
-                GameObject monster = WoodBoxPool.GetObject(); // Lấy trap từ pool
-                monster.transform.position = new Vector3(transform.position.x, 2,0); // Set vị trí của trap
-                monster.SetActive(true); // Hiển thị trap lên màn hình
+                GameObject woodBox = WoodBoxPool.GetObject(); // Lấy trap từ pool
+                woodBox.transform.position = new Vector3(transform.position.x, 3, 0); // Set vị trí của trap
+                woodBox.SetActive(true); // Hiển thị trap lên màn hình
                 count = 0;
             }
-        }if(random == 3)
+        }
+        if(random == 3)
         {
             int count = 0;
-            foreach (GameObject obj in listMine)
+            foreach (GameObject obj in listMines)
             {
                 if (obj.active == false)
                 {
@@ -93,9 +95,27 @@ public class GeneratorTrap : MonoBehaviour
             }
             if (count != 0)
             {
-                GameObject monster = MinePool.GetObject(); // Lấy trap từ pool
-                monster.transform.position = new Vector3(transform.position.x, 2,0); // Set vị trí của trap
-                monster.SetActive(true); // Hiển thị trap lên màn hình
+                GameObject mine = MinePool.GetObject(); // Lấy trap từ pool
+                mine.transform.position = new Vector3(transform.position.x, 3, 0); // Set vị trí của trap
+                mine.SetActive(true); // Hiển thị trap lên màn hình
+                count = 0;
+            }
+        }
+        if(random == 4)
+        {
+            int count = 0;
+            foreach (GameObject obj in listFires)
+            {
+                if (obj.active == false)
+                {
+                    count++;
+                }
+            }
+            if (count != 0)
+            {
+                GameObject fire = FirePool.GetObject(); // Lấy trap từ pool
+                fire.transform.position = new Vector3(transform.position.x, 3, 0); // Set vị trí của trap
+                fire.SetActive(true); // Hiển thị trap lên màn hình
                 count = 0;
             }
         }
