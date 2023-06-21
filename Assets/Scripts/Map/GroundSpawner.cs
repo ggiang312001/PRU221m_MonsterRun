@@ -26,15 +26,17 @@ public class GroundSpawner : MonoBehaviour
         int randomNum = Random.Range(1, 4);
         if(randomNum == 1)
         {
-            Instantiate(Ground1, new Vector3(transform.position.x + 3, -1.35f, 0), Quaternion.identity);
+            Instantiate(Ground1, new Vector3(Random.Range(transform.position.x + 3, transform.position.x + 5), Random.Range(-1.35f,2.5f), 0), Quaternion.identity);
         }
         if (randomNum == 2)
         {
-            Instantiate(Ground2, new Vector3(transform.position.x + 3, 1.34f, 0), Quaternion.identity);
+            Instantiate(Ground2, new Vector3(Random.Range(transform.position.x + 3, transform.position.x + 5), Random.Range(-1.35f, 2.5f), 0), Quaternion.identity);
         }
         if (randomNum == 3)
         {
-            Instantiate(Ground3, new Vector3(transform.position.x + 3, 4.43f, 0), Quaternion.identity);
+
+            Instantiate(Ground3, new Vector3(Random.Range(transform.position.x + 3, transform.position.x + 5), Random.Range(-1.35f, 2.5f), 0), Quaternion.identity);
+
         }
     }
 

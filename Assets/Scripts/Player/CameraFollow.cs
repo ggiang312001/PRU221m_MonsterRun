@@ -7,6 +7,9 @@ public class CameraFollow : MonoBehaviour
 {
     private GameObject player;
     private Vector3 offset;
+    private float x;
+    private float y;
+    private float z;
      // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +20,17 @@ public class CameraFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector3(player.transform.position.x + offset.x, transform.position.y, transform.position.z);
+        if (player.IsDestroyed())
+        {
+            transform.position = new Vector3(x, y, z);
+        }
+        else
+        {
+            transform.position = new Vector3(player.transform.position.x + offset.x, transform.position.y, transform.position.z);
+            x= player.transform.position.x + offset.x;
+            y= transform.position.y;
+            z= transform.position.z;
+        }
+       
     }
 }

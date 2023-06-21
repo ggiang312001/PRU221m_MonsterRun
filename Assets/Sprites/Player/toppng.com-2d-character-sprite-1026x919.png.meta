@@ -432,7 +432,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: toppng.com-2d-character-sprite-1026x919_15
+      name: nga(1)
       rect:
         serializedVersion: 2
         x: 633
@@ -453,7 +453,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: toppng.com-2d-character-sprite-1026x919_16
+      name: nga(2)
       rect:
         serializedVersion: 2
         x: 730
@@ -491,10 +491,10 @@ TextureImporter:
       toppng.com-2d-character-sprite-1026x919_2: -206137089
       run(1): -1118171858
       run(2): 1319168387
-      toppng.com-2d-character-sprite-1026x919_16: 1309919227
       toppng.com-2d-character-sprite-1026x919_4: -705212365
+      nga(2): 1309919227
       toppng.com-2d-character-sprite-1026x919_3: -1515107099
-      toppng.com-2d-character-sprite-1026x919_15: -1979755286
+      nga(1): -1979755286
       toppng.com-2d-character-sprite-1026x919_1: -1275105703
       jump(1): 1669328963
       run(6): -1007529112
