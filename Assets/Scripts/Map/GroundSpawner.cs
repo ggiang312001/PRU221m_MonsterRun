@@ -30,11 +30,13 @@ public class GroundSpawner : MonoBehaviour
         }
         if (randomNum == 2)
         {
-            Instantiate(Ground2, new Vector3(transform.position.x + 3, 1.42f, 0), Quaternion.identity);
+            Instantiate(Ground2, new Vector3(transform.position.x + 3, 1.51f, 0), Quaternion.identity);
         }
         if (randomNum == 3)
         {
-            Instantiate(Ground3, new Vector3(transform.position.x + 3, 3.73f, 0), Quaternion.identity);
+
+            Instantiate(Ground3, new Vector3(transform.position.x + 3, 3.14f, 0), Quaternion.identity);
+
         }
     }
 
