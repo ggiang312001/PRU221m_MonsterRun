@@ -8,9 +8,11 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rgd2d;
     public int runSpeed;
     private int jumpCount = 0;
+    public float gravityForce = 9.8f;
     private bool canJump = true;
     private bool isDead = false;
     Timer timer;
+    Timer runTime;
     Animator anm;
     // Start is called before the first frame update
     void Start()
@@ -27,7 +29,7 @@ public class PlayerController : MonoBehaviour
         {
             canJump= false;
         }
-        transform.position = Vector3.right * runSpeed * Time.deltaTime + transform.position;
+        //transform.position = Vector3.right * runSpeed * Time.deltaTime + transform.position;
         if(Input.GetMouseButtonUp(0) && canJump)
         {
             rgd2d.velocity = Vector3.up * 7f;
@@ -42,7 +44,7 @@ public class PlayerController : MonoBehaviour
         //    Time.timeScale = 0;
         //    isDead = false;
         //}
-        if(ScreenUtils.ScreenBottom > transform.position.y)
+        if (ScreenUtils.ScreenBottom > transform.position.y)
         {
             Destroy(gameObject);
             Time.timeScale = 0;
