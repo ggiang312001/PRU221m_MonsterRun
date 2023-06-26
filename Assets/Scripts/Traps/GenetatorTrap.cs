@@ -5,22 +5,11 @@ using UnityEngine;
 
 public class GeneratorTrap : MonoBehaviour
 {
-    public GameObject WoodBox, Thorn;
 
     List<GameObject> listTrap;
     // Start is called before the first frame update
     void Start()
     {
-        listTrap = new List<GameObject>();
-        for(int i = 0; i < 3; i++)
-        {
-            listTrap.Add(WoodBox);
-            listTrap.Add(Thorn);
-        }
-        foreach(GameObject item in listTrap)
-        {
-            item.SetActive(false);
-        }
 
     }
     float timeSpawner = 5;
