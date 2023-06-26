@@ -63,7 +63,7 @@ public class PlayerController : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Trap"))
         {
-            Time.timeScale = 0;
+            //Time.timeScale = 0;
             //anm.SetTrigger("dead");
             isDead = true;
             //timer.Duration = 0.5f;
