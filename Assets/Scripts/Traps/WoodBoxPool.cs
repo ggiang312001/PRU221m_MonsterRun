@@ -23,13 +23,13 @@ public class WoodBoxPool : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //foreach (GameObject obj in pool)
-        //{
-        //    if (!obj.activeInHierarchy)
-        //    {
-        //        obj.SetActive(false);
-        //    }
-        //}
+        foreach (GameObject obj in pool)
+        {
+            if (obj.transform.position.x < ScreenUtils.ScreenLeft)
+            {
+                obj.SetActive(false);
+            }
+        }
     }
 
     public GameObject GetObject()
