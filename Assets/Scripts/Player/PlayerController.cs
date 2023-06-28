@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
         {
             canJump= false;
         }
-        //transform.position = Vector3.right * runSpeed * Time.deltaTime + transform.position;
+       transform.position = Vector3.right * runSpeed * Time.deltaTime + transform.position;
         if(Input.GetMouseButtonUp(0) && canJump)
         {
             rgd2d.velocity = Vector3.up * 7f;
