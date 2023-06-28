@@ -94,7 +94,7 @@ public class GroundSpawner : MonoBehaviour
 
     private void SpawnItem(GameObject ground, int child)
     {
-        int appear = Random.Range(0, 10);
+        int appear = Random.Range(1, 2);
         if(appear == 1)
         {
             List<GameObject> listHearts = HeartPool.pool;

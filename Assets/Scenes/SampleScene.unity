@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Snow: {fileID: 48257348407049923, guid: 4ff3d168489ae5c41a75797766cfad10, type: 3}
-  poolSize: 1
+  poolSize: 2
   pool: []
 --- !u!4 &23775910
 Transform:
@@ -2498,7 +2498,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Heart: {fileID: 2963292901526794613, guid: a060347cf30166a4890a4c109c8d8be1, type: 3}
-  poolSize: 1
+  poolSize: 2
   pool: []
 --- !u!4 &1857055679
 Transform:
