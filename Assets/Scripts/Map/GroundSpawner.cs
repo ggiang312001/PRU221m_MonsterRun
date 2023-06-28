@@ -12,6 +12,8 @@ public class GroundSpawner : MonoBehaviour
     public WoodBoxPool WoodBoxPool;
     public MinePool MinePool;
     public FirePool FirePool;
+    public HeartPool HeartPool;
+    public SnowPool SnowPool;
     bool hasGround = true;
     Timer SpawnTime;
     GameObject beforeGround;
@@ -47,16 +49,19 @@ public class GroundSpawner : MonoBehaviour
             {
                beforeGround = Instantiate(Ground1, new Vector3(InitialGround.transform.GetChild(3).transform.position.x + 5, Random.Range(-1.35f, 2.5f), 0), Quaternion.identity);
                SpawnTrap(beforeGround, 14);
+               SpawnItem(beforeGround, 14);
             }
             if (randomNum == 2)
             {
                 beforeGround = Instantiate(Ground2, new Vector3(InitialGround.transform.GetChild(3).transform.position.x + 5, Random.Range(-1.35f, 2.5f), 0), Quaternion.identity);
                 SpawnTrap(beforeGround, 18);
+                SpawnItem(beforeGround, 18);
             }
             if (randomNum == 3)
             {
                 beforeGround = Instantiate(Ground3, new Vector3(InitialGround.transform.GetChild(3).transform.position.x + 5, Random.Range(-1.35f, 2.5f), 0), Quaternion.identity);
                 SpawnTrap(beforeGround, 10);
+                SpawnItem(beforeGround, 10);
             }
             isFirst= false;
         }
@@ -68,20 +73,74 @@ public class GroundSpawner : MonoBehaviour
             {
                 beforeGround = Instantiate(Ground1, new Vector3(beforeGround.transform.GetChild(3).transform.position.x + 5, Random.Range(-1.35f, 2.5f), 0), Quaternion.identity);
                 SpawnTrap(beforeGround, 14);
+                SpawnItem(beforeGround, 14);
             }
             if (randomNum == 2)
             {
                 beforeGround = Instantiate(Ground2, new Vector3(beforeGround.transform.GetChild(3).transform.position.x + 5, Random.Range(-1.35f, 2.5f), 0), Quaternion.identity);
                 SpawnTrap(beforeGround, 18);
+                SpawnItem(beforeGround, 18);
             }
             if (randomNum == 3)
             {
                 beforeGround = Instantiate(Ground3, new Vector3(beforeGround.transform.GetChild(3).transform.position.x + 5, Random.Range(-1.35f, 2.5f), 0), Quaternion.identity);
                 SpawnTrap(beforeGround, 10);
+                SpawnItem(beforeGround, 10);
             }
         }
         
        
+    }
+
+    private void SpawnItem(GameObject ground, int child)
+    {
+        int appear = Random.Range(0, 10);
+        if(appear == 1)
+        {
+            List<GameObject> listHearts = HeartPool.pool;
+            List<GameObject> listSnows = SnowPool.pool;
+            int randomChild = Random.Range(1, child);
+            Vector3 position = ground.transform.GetChild(randomChild).transform.position;
+            int random = UnityEngine.Random.Range(1, 3);
+
+
+            if (random == 1)
+            {
+                int count = 0;
+                foreach (GameObject obj in listHearts)
+                {
+                    if (obj.active == false)
+                    {
+                        count++;
+                    }
+                }
+                if (count != 0)
+                {
+                    GameObject thorn = HeartPool.GetObject(); // Lấy trap từ pool
+                    thorn.transform.position = new Vector3(position.x, Random.Range(position.y, position.y + 2f), 0); // Set vị trí của trap
+                    thorn.SetActive(true); // Hiển thị trap lên màn hình
+                    count = 0;
+                }
+            }
+            if (random == 2)
+            {
+                int count = 0;
+                foreach (GameObject obj in listSnows)
+                {
+                    if (obj.active == false)
+                    {
+                        count++;
+                    }
+                }
+                if (count != 0)
+                {
+                    GameObject woodBox = SnowPool.GetObject(); // Lấy trap từ pool
+                    woodBox.transform.position = new Vector3(position.x, Random.Range(position.y + 1f, position.y + 3f), 0); // Set vị trí của trap
+                    woodBox.SetActive(true); // Hiển thị trap lên màn hình
+                    count = 0;
+                }
+            }
+        }
     }
 
     private void SpawnTrap(GameObject ground, int child)
@@ -106,7 +165,7 @@ public class GroundSpawner : MonoBehaviour
                    if(temp == randomChild)
                     {
                         count++;
-                    } 
+                    }
                 }
                 if(count == 0)
                 {

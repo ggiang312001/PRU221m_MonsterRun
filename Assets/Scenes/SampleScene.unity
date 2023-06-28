@@ -307,6 +307,53 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &464164401
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 464164403}
+  - component: {fileID: 464164402}
+  m_Layer: 0
+  m_Name: HeartPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &464164402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 464164401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d23b7f0cffd1a24bb2573213200165b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Heart: {fileID: 2963292901526794613, guid: a060347cf30166a4890a4c109c8d8be1, type: 3}
+  poolSize: 5
+  pool: []
+--- !u!4 &464164403
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 464164401}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.9515376, y: -0.72882473, z: -0.010831345}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &488826149
 GameObject:
   m_ObjectHideFlags: 0
@@ -784,6 +831,8 @@ MonoBehaviour:
   WoodBoxPool: {fileID: 1201658486}
   MinePool: {fileID: 488826150}
   FirePool: {fileID: 2105864044}
+  HeartPool: {fileID: 464164402}
+  SnowPool: {fileID: 1817999713}
 --- !u!4 &1570924663
 Transform:
   m_ObjectHideFlags: 0
@@ -811,6 +860,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d4480e354186f4419f12443878870b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1817999712
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1817999714}
+  - component: {fileID: 1817999713}
+  m_Layer: 0
+  m_Name: SnowPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1817999713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1817999712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33e5ce76f8de21f41aa6daac7d15ccb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Snow: {fileID: 48257348407049923, guid: 4ff3d168489ae5c41a75797766cfad10, type: 3}
+  poolSize: 5
+  pool: []
+--- !u!4 &1817999714
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1817999712}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.9515376, y: -0.72882473, z: -0.010831345}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1970707168
 PrefabInstance:
   m_ObjectHideFlags: 0
