@@ -4,28 +4,25 @@ using UnityEngine;
 
 public class GameManage : MonoBehaviour
 {
-    public static float speedGround = 3;
-    public static float speedTrap = 3;
-    public static float speedItem = 3;
+    public static float speed = 3;
+
     float runTime;
-    float changeSpeedGroundTime;
+    float changeSpeedTime;
     // Start is called before the first frame update
     void Start()
     {
         runTime = 0;
-        changeSpeedGroundTime = 15;
+        changeSpeedTime = 15;
     }
 
     // Update is called once per frame
     void Update()
     {
         runTime += Time.deltaTime;
-        if (runTime >= changeSpeedGroundTime)
+        if (runTime >= changeSpeedTime)
         {
-            speedGround += 0.5f;
-            speedTrap += 0.5f;
-            speedItem += 0.5f;
-            changeSpeedGroundTime += 15;
+            speed += 0.5f;
+            changeSpeedTime += 15;
         }
     }
 }
