@@ -2010,6 +2010,7 @@ GameObject:
   - component: {fileID: 1570924662}
   - component: {fileID: 1570924660}
   - component: {fileID: 1570924659}
+  - component: {fileID: 1570924665}
   m_Layer: 0
   m_Name: GroundSpawner
   m_TagString: Untagged
