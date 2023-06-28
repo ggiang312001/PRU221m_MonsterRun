@@ -152,7 +152,7 @@ public class GroundSpawner : MonoBehaviour
         int randomNum = UnityEngine.Random.Range(2, 4);
         List<int> spawned = new List<int>();
 
-        for(int i = 0; i < randomNum; i++)
+        for (int i = 0; i < randomNum; i++)
         {
             int randomTrap = UnityEngine.Random.Range(1, 5);
             int randomChild;
@@ -160,20 +160,20 @@ public class GroundSpawner : MonoBehaviour
             {
                 randomChild = Random.Range(1, child);
                 int count = 0;
-                foreach(int temp in spawned)
+                foreach (int temp in spawned)
                 {
-                   if(temp == randomChild)
+                    if (temp == randomChild)
                     {
                         count++;
                     }
                 }
-                if(count == 0)
+                if (count == 0)
                 {
                     spawned.Add(randomChild);
                     break;
                 }
             }
-           
+
             Vector3 position = ground.transform.GetChild(randomChild).transform.position;
             if (randomTrap == 1)
             {
@@ -192,7 +192,7 @@ public class GroundSpawner : MonoBehaviour
                     thorn.SetActive(true); // Hiển thị trap lên màn hình
                     count = 0;
                 }
-                
+
             }
             if (randomTrap == 2)
             {
@@ -211,7 +211,7 @@ public class GroundSpawner : MonoBehaviour
                     woodBox.SetActive(true); // Hiển thị trap lên màn hình
                     count = 0;
                 }
-                
+
             }
             if (randomTrap == 3)
             {
@@ -230,7 +230,7 @@ public class GroundSpawner : MonoBehaviour
                     mine.SetActive(true); // Hiển thị trap lên màn hình
                     count = 0;
                 }
-                
+
             }
             if (randomTrap == 4)
             {
@@ -249,7 +249,7 @@ public class GroundSpawner : MonoBehaviour
                     fire.SetActive(true); // Hiển thị trap lên màn hình
                     count = 0;
                 }
-                
+
             }
         }
     }
