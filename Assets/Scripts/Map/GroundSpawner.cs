@@ -8,13 +8,10 @@ public class GroundSpawner : MonoBehaviour
     [SerializeField]
     GameObject InitialGround;
     public GameObject Ground1, Ground2, Ground3;
-    bool hasGround = true;
     Timer SpawnTime;
-    List<GameObject> groundPool;
-    int poolSize = 10;
-    int currentIndex = 0;
     GameObject beforeGround;
     bool isFirst = true;
+    private string[] groundTag = new string[] { "Ground", "Ground1", "Ground2" };
 
     // Start is called before the first frame update
     void Start()
@@ -23,14 +20,6 @@ public class GroundSpawner : MonoBehaviour
         SpawnTime.Duration = 2f;
         SpawnTime.Run();
 
-        // Khởi tạo Object Pool
-        groundPool = new List<GameObject>();
-        for (int i = 0; i < poolSize; i++)
-        {
-            GameObject ground = CreateGround();
-            ground.SetActive(false);
-            groundPool.Add(ground);
-        }
     }
 
     // Update is called once per frame
@@ -41,13 +30,13 @@ public class GroundSpawner : MonoBehaviour
             SpawnGround();
             SpawnTime.Duration = 2f;
             SpawnTime.Run();
-        }
-    }
 
+        }
+}
     public void SpawnGround()
     {
-        // Lấy đối tượng Ground từ Object Pool
-        GameObject ground = GetPooledGround();
+        var randomTag = Random.Range(0, groundTag.Length);
+        GameObject ground = ObjectPooling.SharedInstance.GetPooledObject(groundTag[randomTag]);
 
         if (ground != null)
         {
@@ -92,31 +81,8 @@ public class GroundSpawner : MonoBehaviour
 
             // Lưu đối tượng Ground cho sử dụng sau này
             beforeGround = ground;
+
         }
-    }
-
-    private GameObject GetPooledGround()
-    {
-        // Lấy đối tượng Ground từ Object Pool
-        GameObject ground = groundPool[currentIndex];
-        currentIndex = (currentIndex + 1) % poolSize;
-
-        // Kiểm tra xem đối tượng Ground đã được sử dụng hay chưa
-        if (ground.activeInHierarchy)
-        {
-            // Tìm đối tượng Ground không được sử dụng
-            for (int i = 0; i < poolSize; i++)
-            {
-                if (!groundPool[i].activeInHierarchy)
-                {
-                    ground = groundPool[i];
-                    currentIndex = (i + 1) % poolSize;
-                    break;
-                }
-            }
-        }
-
-        return ground;
     }
 
     private GameObject CreateGround()

@@ -7,6 +7,8 @@ TagManager:
   - Trap
   - Ground
   - WoodBox
+  - Ground1
+  - Ground2
   layers:
   - Default
   - TransparentFX

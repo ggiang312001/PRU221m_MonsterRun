@@ -685,7 +685,7 @@ GameObject:
   - component: {fileID: 4191450666748583759}
   m_Layer: 0
   m_Name: Ground3
-  m_TagString: Ground
+  m_TagString: Ground2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -753,7 +753,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aeb97699606fb1499c2d9de0dc9e0b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
 --- !u!1 &8338995971366747271
 GameObject:
   m_ObjectHideFlags: 0
