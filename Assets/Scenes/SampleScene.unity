@@ -874,13 +874,13 @@ MonoBehaviour:
   itemsToPool:
   - amountToPool: 5
     objectToPool: {fileID: 4607921431741654015, guid: 2e44bdf195b45554d860fac794ea3fc5, type: 3}
-    shouldExpand: 1
+    shouldExpand: 0
   - amountToPool: 5
     objectToPool: {fileID: 2190217648955613083, guid: e86f96fb15110a545b1c4dbf11f9e99d, type: 3}
-    shouldExpand: 1
+    shouldExpand: 0
   - amountToPool: 5
     objectToPool: {fileID: 8203377897045833822, guid: 2d66a5d5611929944b454c32729adbf1, type: 3}
-    shouldExpand: 1
+    shouldExpand: 0
   pooledObjects: []
 --- !u!4 &1863831394
 Transform:
