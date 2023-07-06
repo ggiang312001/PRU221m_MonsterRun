@@ -7,7 +7,7 @@ public class GameManage : MonoBehaviour
     public static float speed = 3;
     public static bool isSnow = false;
     float runTime;
-
+    float time;
     float changeSpeedTime;
     // Start is called before the first frame update
     void Start()
@@ -19,6 +19,23 @@ public class GameManage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isSnow == true)
+        {
+            time += Time.deltaTime;
+            if (SnowItem.numberSnowItem > 1)
+            {
+                time = 0;
+                SnowItem.numberSnowItem = 1;
+            }
+            if (time >= 10)
+            {
+                speed = SnowItem.speedBeforeSnow;
+                isSnow = false;
+                time = 0;
+                SnowItem.numberSnowItem = 0;
+            }
+        }
+
         if (isSnow == false)
         {
             runTime += Time.deltaTime;

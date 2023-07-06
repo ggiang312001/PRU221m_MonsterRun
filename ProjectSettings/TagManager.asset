@@ -47,3 +47,24 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Sky
+    uniqueID: 387065255
+    locked: 0
+  - name: Clouds1
+    uniqueID: 3018553399
+    locked: 0
+  - name: Clouds2
+    uniqueID: 1475768089
+    locked: 0
+  - name: Mountain1
+    uniqueID: 537983881
+    locked: 0
+  - name: Mountain2
+    uniqueID: 653710323
+    locked: 0
+  - name: Tree
+    uniqueID: 3054850405
+    locked: 0
+  - name: Player
+    uniqueID: 3389711975
+    locked: 0

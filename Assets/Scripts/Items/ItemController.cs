@@ -4,24 +4,13 @@ using UnityEngine;
 
 public abstract class ItemController : MonoBehaviour
 {
-   
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        transform.position = Vector3.left * GameManage.speed * Time.deltaTime + transform.position;
-    }
-
-    void OnCollisionEnter2D(Collision2D collision)
+  
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag.Equals("Player"))
         {
             InteractWithPlayer();
-        }  
+        }
     }
 
     protected abstract void InteractWithPlayer();

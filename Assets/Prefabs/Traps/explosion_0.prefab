@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1927003967465678277
+--- !u!1 &6973526171193598071
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,40 +8,39 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1927003967465678280}
-  - component: {fileID: 1927003967465678281}
-  - component: {fileID: 1927003967465678282}
-  - component: {fileID: 1927003967465678283}
-  - component: {fileID: -3561960958027332531}
+  - component: {fileID: 6973526171193598074}
+  - component: {fileID: 6973526171193598069}
+  - component: {fileID: 6973526171193598068}
+  - component: {fileID: -6227148908346654377}
   m_Layer: 0
-  m_Name: Fire
-  m_TagString: Trap
+  m_Name: explosion_0
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1927003967465678280
+--- !u!4 &6973526171193598074
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1927003967465678277}
+  m_GameObject: {fileID: 6973526171193598071}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.098, y: -1.687, z: 0}
+  m_LocalPosition: {x: 10.47, y: 3.77, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &1927003967465678281
+--- !u!212 &6973526171193598069
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1927003967465678277}
+  m_GameObject: {fileID: 6973526171193598071}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -75,29 +74,29 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -905255321
   m_SortingLayer: 7
-  m_SortingOrder: 6
-  m_Sprite: {fileID: 217325023, guid: 1b13b2babdb75de4d8c3234d4e7d71c7, type: 3}
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 988847198, guid: 8bf357fd8e90b5046ad916fdda19fa00, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.97, y: 1.96}
+  m_Size: {x: 0.625, y: 0.575}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &1927003967465678282
+--- !u!95 &6973526171193598068
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1927003967465678277}
+  m_GameObject: {fileID: 6973526171193598071}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 704ae35aa4a4d924791f097224e79fc0, type: 2}
+  m_Controller: {fileID: 9100000, guid: a08da673eaa2a9f46821523280495d06, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -107,41 +106,15 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
---- !u!61 &1927003967465678283
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1927003967465678277}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.00452286, y: -0.5065685}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.97, y: 1.96}
-    newSize: {x: 1.97, y: 1.96}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.6172115, y: 0.85640466}
-  m_EdgeRadius: 0
---- !u!114 &-3561960958027332531
+--- !u!114 &-6227148908346654377
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1927003967465678277}
+  m_GameObject: {fileID: 6973526171193598071}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd3ac9ea4cda34f4db23a85a9b76c919, type: 3}
+  m_Script: {fileID: 11500000, guid: cc0d1957649f01948bc132160d5082f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

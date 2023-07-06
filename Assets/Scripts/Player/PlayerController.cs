@@ -51,62 +51,20 @@ public class PlayerController : MonoBehaviour
             Destroy(gameObject);
             Time.timeScale = 0;
         }
-
-        if(GameManage.isSnow == true)
-        {
-            time += Time.deltaTime;
-            if(numberSnowItem > 1)
-            {
-                time = 0;
-                numberSnowItem = 1;
-            }
-            if (time >= 10)
-            {
-                GameManage.speed = speedBeforeSnow;
-                GameManage.isSnow= false;
-                time = 0;
-                numberSnowItem = 0;
-            }
-        }
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
        
-        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("WoodBox"))
+        if (collision.gameObject.CompareTag("Ground"))
         {
-            canJump = true;
-            //anm.SetBool("isJump", false);
-            //anm.SetBool("isRun", true);
-            //anm.SetTrigger("drop");
-            jumpCount = 0;
-        }
-        if (collision.gameObject.CompareTag("Trap"))
-        {
-            //Time.timeScale = 0;
-            //anm.SetTrigger("dead");
-            isDead = true;
-            //timer.Duration = 0.5f;
-            //timer.Run();
-           
-            hud.ReduceHealth();
-        }
-        if (collision.gameObject.CompareTag("HeartItem"))
-        {
-            collision.gameObject.SetActive(false);
-            if (hud.GetHealth() < 5)
+            if (transform.position.y >= collision.gameObject.transform.GetChild(0).gameObject.transform.position.y)
             {
-                hud.IncreaseHealth();
-            }
-        }
-        if (collision.gameObject.CompareTag("SnowItem"))
-        {
-            numberSnowItem++;
-            collision.gameObject.SetActive(false);
-            if (numberSnowItem <= 1){
-                speedBeforeSnow = GameManage.speed;
-                GameManage.isSnow = true;
-                GameManage.speed -= 2f;
+                canJump = true;
+                //anm.SetBool("isJump", false);
+                //anm.SetBool("isRun", true);
+                //anm.SetTrigger("drop");
+                jumpCount = 0;
             }
         }
     }
