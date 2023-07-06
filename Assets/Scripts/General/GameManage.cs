@@ -5,8 +5,9 @@ using UnityEngine;
 public class GameManage : MonoBehaviour
 {
     public static float speed = 3;
-
+    public static bool isSnow = false;
     float runTime;
+
     float changeSpeedTime;
     // Start is called before the first frame update
     void Start()
@@ -18,11 +19,16 @@ public class GameManage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        runTime += Time.deltaTime;
-        if (runTime >= changeSpeedTime)
+        if (isSnow == false)
         {
-            speed += 0.5f;
-            changeSpeedTime += 15;
-        }
+            runTime += Time.deltaTime;
+            if (runTime >= changeSpeedTime)
+            {
+                speed += 0.5f;
+                changeSpeedTime += 15;
+            }
+        } 
+        HUD hud = GameObject.FindGameObjectWithTag("HUD").GetComponent<HUD>();
+        if (hud.GetHealth()==0) { Time.timeScale = 0; }
     }
 }

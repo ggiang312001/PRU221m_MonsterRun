@@ -6,20 +6,26 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     Rigidbody2D rgd2d;
-    public int runSpeed;
+    HUD hud;
+    float runSpeed;
+    float speedBeforeSnow;
     private int jumpCount = 0;
-    public float gravityForce = 9.8f;
+    //public float gravityForce = 9.8f;
     private bool canJump = true;
     private bool isDead = false;
-    Timer timer;
-    Timer runTime;
+    float time;
     Animator anm;
+    int numberSnowItem;
     // Start is called before the first frame update
     void Start()
     {
-        timer = gameObject.AddComponent<Timer>();
+        time = 0;
+        runSpeed = 0;
+        speedBeforeSnow = 0;
+        numberSnowItem = 0;
         rgd2d = GetComponent<Rigidbody2D>();
         anm= GetComponent<Animator>();
+        hud = GameObject.FindGameObjectWithTag("HUD").GetComponent<HUD>();
     }
 
     // Update is called once per frame
@@ -39,20 +45,34 @@ public class PlayerController : MonoBehaviour
             //anm.SetBool("isRun", false);
             jumpCount++;
         }
-        //if(timer.Finished && isDead == true)
-        //{
-        //    Time.timeScale = 0;
-        //    isDead = false;
-        //}
         if (ScreenUtils.ScreenBottom > transform.position.y)
         {
+            hud.Dead();
             Destroy(gameObject);
             Time.timeScale = 0;
+        }
+
+        if(GameManage.isSnow == true)
+        {
+            time += Time.deltaTime;
+            if(numberSnowItem > 1)
+            {
+                time = 0;
+                numberSnowItem = 1;
+            }
+            if (time >= 10)
+            {
+                GameManage.speed = speedBeforeSnow;
+                GameManage.isSnow= false;
+                time = 0;
+                numberSnowItem = 0;
+            }
         }
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+       
         if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("WoodBox"))
         {
             canJump = true;
@@ -68,6 +88,26 @@ public class PlayerController : MonoBehaviour
             isDead = true;
             //timer.Duration = 0.5f;
             //timer.Run();
+           
+            hud.ReduceHealth();
+        }
+        if (collision.gameObject.CompareTag("HeartItem"))
+        {
+            collision.gameObject.SetActive(false);
+            if (hud.GetHealth() < 5)
+            {
+                hud.IncreaseHealth();
+            }
+        }
+        if (collision.gameObject.CompareTag("SnowItem"))
+        {
+            numberSnowItem++;
+            collision.gameObject.SetActive(false);
+            if (numberSnowItem <= 1){
+                speedBeforeSnow = GameManage.speed;
+                GameManage.isSnow = true;
+                GameManage.speed -= 2f;
+            }
         }
     }
 }

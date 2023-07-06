@@ -6,6 +6,7 @@ public class GeneratorItem : MonoBehaviour
 {
     public HeartPool HeartPool;
     public SnowPool SnowPool;
+    public static GameObject SnowObject;
 
     // Start is called before the first frame update
     void Start()
@@ -61,9 +62,9 @@ public class GeneratorItem : MonoBehaviour
             }
             if (count != 0)
             {
-                GameObject woodBox = SnowPool.GetObject(); // Lấy trap từ pool
-                woodBox.transform.position = new Vector3(transform.position.x, 3, 0); // Set vị trí của trap
-                woodBox.SetActive(true); // Hiển thị trap lên màn hình
+                SnowObject = SnowPool.GetObject(); // Lấy trap từ pool
+                SnowObject.transform.position = new Vector3(transform.position.x, 3, 0); // Set vị trí của trap
+                SnowObject.SetActive(true); // Hiển thị trap lên màn hình
                 count = 0;
             }
         }

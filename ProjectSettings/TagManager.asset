@@ -7,6 +7,9 @@ TagManager:
   - Trap
   - Ground
   - WoodBox
+  - SnowItem
+  - HUD
+  - HeartItem
   layers:
   - Default
   - TransparentFX
