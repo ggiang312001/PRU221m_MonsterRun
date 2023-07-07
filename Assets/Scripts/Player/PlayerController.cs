@@ -54,7 +54,7 @@ public class PlayerController : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("WoodBox")
-            || collision.gameObject.CompareTag("Ground1") || collision.gameObject.CompareTag("Ground2"))
+            || collision.gameObject.CompareTag("Ground1") || collision.gameObject.CompareTag("Ground2") || collision.gameObject.CompareTag("Ground3") || collision.gameObject.CompareTag("Ground4"))
         {
             canJump = true;
             //anm.SetBool("isJump", false);

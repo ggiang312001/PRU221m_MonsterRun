@@ -9,10 +9,10 @@ public class GroundSpawner : MonoBehaviour
 
     [SerializeField]
     GameObject InitialGround;
-    public GameObject Ground1, Ground2, Ground3;
+    public GameObject Ground1, Ground2, Ground3, Ground4, Ground5;
     Timer SpawnTime;
     bool isFirst = true;
-    private string[] groundTag = new string[] { "Ground", "Ground1", "Ground2" };
+    private string[] groundTag = new string[] { "Ground", "Ground1", "Ground2","Ground3","Ground4" };
     private Transform currentGround;
     private int posX;
 
@@ -44,7 +44,7 @@ public class GroundSpawner : MonoBehaviour
         if (ground != null)
         {
             
-                var offset = Random.Range(1, 4);
+                var offset = Random.Range(1, 5);
                 if (ground.tag == groundTag[0] || ground.tag == groundTag[1]) posX = 18;
                 else posX = 10;
 
