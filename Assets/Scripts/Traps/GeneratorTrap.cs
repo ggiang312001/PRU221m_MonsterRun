@@ -7,7 +7,6 @@ using UnityEngine;
 public class GeneratorTrap : MonoBehaviour
 {
     public ThornPool ThornPool;
-    public WoodBoxPool WoodBoxPool;
     public MinePool MinePool;
     public FirePool FirePool;
 
@@ -43,7 +42,6 @@ public class GeneratorTrap : MonoBehaviour
     private void SpawnTrap()
     {
         List<GameObject> listThorns = ThornPool.pool;
-        List<GameObject> listWoodBoxs = WoodBoxPool.pool;
         List<GameObject> listMines = MinePool.pool;
         List<GameObject> listFires = FirePool.pool;
         int random = UnityEngine.Random.Range(1,5);
@@ -65,25 +63,8 @@ public class GeneratorTrap : MonoBehaviour
                 count = 0;
             }
         }
+        
         if(random == 2)
-        {
-            int count = 0;
-            foreach (GameObject obj in listWoodBoxs)
-            {
-                if (obj.active == false)
-                {
-                    count++;
-                }
-            }
-            if (count != 0)
-            {
-                GameObject woodBox = WoodBoxPool.GetObject(); // Lấy trap từ pool
-                woodBox.transform.position = new Vector3(transform.position.x, 3, 0); // Set vị trí của trap
-                woodBox.SetActive(true); // Hiển thị trap lên màn hình
-                count = 0;
-            }
-        }
-        if(random == 3)
         {
             int count = 0;
             foreach (GameObject obj in listMines)
@@ -101,7 +82,7 @@ public class GeneratorTrap : MonoBehaviour
                 count = 0;
             }
         }
-        if(random == 4)
+        if(random == 3)
         {
             int count = 0;
             foreach (GameObject obj in listFires)

@@ -13,6 +13,6 @@ public class MonsterController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector3.left * GameManage.speed * 1.5f * Time.deltaTime + transform.position;
+        transform.position = Vector3.left * GameManage.speed * 1.1f * Time.deltaTime + transform.position;
     }
 }

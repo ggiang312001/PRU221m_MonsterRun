@@ -49,7 +49,7 @@ public class WizardController : MonoBehaviour
                 if (count != 0)
                 {
                     GameObject bullet = WizardBulletPool.GetObject(); // Lấy trap từ pool
-                    bullet.transform.position = new Vector3(transform.position.x - 0.3f, transform.position.y, 0); // Set vị trí của trap
+                    bullet.transform.position = new Vector3(transform.position.x - 0.3f, transform.position.y - 0.2f, 0); // Set vị trí của trap
                     bullet.SetActive(true); // Hiển thị trap lên màn hình
                     count = 0;
                 }

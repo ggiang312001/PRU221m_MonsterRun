@@ -25,7 +25,7 @@ public class BulletController : MonoBehaviour
             transform.gameObject.SetActive(false);
             List<GameObject> listFighters = WizardExplosionPool.pool;
             GameObject explosion = WizardExplosionPool.GetObject(); // Lấy trap từ pool
-            explosion.transform.position = new Vector3(collision.transform.position.x, collision.transform.position.y + 0.5f, 0); // Set vị trí của trap
+            explosion.transform.position = new Vector3(collision.transform.position.x, collision.transform.position.y, 0); // Set vị trí của trap
             explosion.SetActive(true);
         }
     }
