@@ -6,20 +6,26 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     Rigidbody2D rgd2d;
-    public int runSpeed;
+    HUD hud;
+    float runSpeed;
+    float speedBeforeSnow;
     private int jumpCount = 0;
-    public float gravityForce = 9.8f;
+    //public float gravityForce = 9.8f;
     private bool canJump = true;
     private bool isDead = false;
-    Timer timer;
-    Timer runTime;
+    float time;
     Animator anm;
+    int numberSnowItem;
     // Start is called before the first frame update
     void Start()
     {
-        timer = gameObject.AddComponent<Timer>();
+        time = 0;
+        runSpeed = 0;
+        speedBeforeSnow = 0;
+        numberSnowItem = 0;
         rgd2d = GetComponent<Rigidbody2D>();
         anm= GetComponent<Animator>();
+        hud = GameObject.FindGameObjectWithTag("HUD").GetComponent<HUD>();
     }
 
     // Update is called once per frame
@@ -39,13 +45,9 @@ public class PlayerController : MonoBehaviour
             //anm.SetBool("isRun", false);
             jumpCount++;
         }
-        //if(timer.Finished && isDead == true)
-        //{
-        //    Time.timeScale = 0;
-        //    isDead = false;
-        //}
         if (ScreenUtils.ScreenBottom > transform.position.y)
         {
+            hud.Dead();
             Destroy(gameObject);
             Time.timeScale = 0;
         }
@@ -53,21 +55,17 @@ public class PlayerController : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("WoodBox"))
+       
+        if (collision.gameObject.CompareTag("Ground"))
         {
-            canJump = true;
-            //anm.SetBool("isJump", false);
-            //anm.SetBool("isRun", true);
-            //anm.SetTrigger("drop");
-            jumpCount = 0;
-        }
-        if (collision.gameObject.CompareTag("Trap"))
-        {
-            //Time.timeScale = 0;
-            //anm.SetTrigger("dead");
-            isDead = true;
-            //timer.Duration = 0.5f;
-            //timer.Run();
+            if (transform.position.y >= collision.gameObject.transform.GetChild(0).gameObject.transform.position.y)
+            {
+                canJump = true;
+                //anm.SetBool("isJump", false);
+                //anm.SetBool("isRun", true);
+                //anm.SetTrigger("drop");
+                jumpCount = 0;
+            }
         }
     }
 }

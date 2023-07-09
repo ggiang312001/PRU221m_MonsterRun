@@ -2,17 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TrapController : MonoBehaviour
+public abstract class TrapController : MonoBehaviour
 {
-   
-    // Start is called before the first frame update
-    void Start()
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            InteractWithPlayer();
+            ReduceHealth();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    protected abstract void InteractWithPlayer();
+
+    void ReduceHealth()
     {
-        transform.position = Vector3.left * GameManage.speed * Time.deltaTime + transform.position;
+        HUD hud = GameObject.FindGameObjectWithTag("HUD").GetComponent<HUD>();
+        hud.ReduceHealth();
     }
 }

@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 2963292901526794615}
   - component: {fileID: 2963292901526794614}
   - component: {fileID: 3657110570885579764}
-  - component: {fileID: 7179944228128542584}
+  - component: {fileID: -808892567449535411}
   m_Layer: 0
   m_Name: Heart
-  m_TagString: Untagged
+  m_TagString: HeartItem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73,8 +73,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -905255321
+  m_SortingLayer: 7
   m_SortingOrder: 6
   m_Sprite: {fileID: -516960560, guid: b37655d48e8b06e4c8e44056504e41ab, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -117,7 +117,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -133,7 +133,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.86, y: 0.73}
   m_EdgeRadius: 0
---- !u!114 &7179944228128542584
+--- !u!114 &-808892567449535411
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -142,6 +142,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 2963292901526794613}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 887010c5a260ee8479bb31482d3f56a7, type: 3}
+  m_Script: {fileID: 11500000, guid: b6d504ae4701a58419baedb589cccc6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

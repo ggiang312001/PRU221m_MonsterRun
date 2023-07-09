@@ -2,17 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemController : MonoBehaviour
+public abstract class ItemController : MonoBehaviour
 {
-   
-    // Start is called before the first frame update
-    void Start()
+  
+    private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.gameObject.tag.Equals("Player"))
+        {
+            InteractWithPlayer();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        transform.position = Vector3.left * GameManage.speed * Time.deltaTime + transform.position;
-    }
+    protected abstract void InteractWithPlayer();
 }

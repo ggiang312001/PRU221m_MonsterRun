@@ -5,24 +5,47 @@ using UnityEngine;
 public class GameManage : MonoBehaviour
 {
     public static float speed = 3;
-
+    public static bool isSnow = false;
     float runTime;
-    float changeSpeedGroundTime;
+    float time;
+    float changeSpeedTime;
     // Start is called before the first frame update
     void Start()
     {
         runTime = 0;
-        changeSpeedGroundTime = 15;
+        changeSpeedTime = 15;
     }
 
     // Update is called once per frame
     void Update()
     {
-        runTime += Time.deltaTime;
-        if (runTime >= changeSpeedGroundTime)
+        if (isSnow == true)
         {
-            speed += 0.5f;
-            changeSpeedGroundTime += 15;
+            time += Time.deltaTime;
+            if (SnowItem.numberSnowItem > 1)
+            {
+                time = 0;
+                SnowItem.numberSnowItem = 1;
+            }
+            if (time >= 10)
+            {
+                speed = SnowItem.speedBeforeSnow;
+                isSnow = false;
+                time = 0;
+                SnowItem.numberSnowItem = 0;
+            }
         }
+
+        if (isSnow == false)
+        {
+            runTime += Time.deltaTime;
+            if (runTime >= changeSpeedTime)
+            {
+                speed += 0.5f;
+                changeSpeedTime += 15;
+            }
+        } 
+        HUD hud = GameObject.FindGameObjectWithTag("HUD").GetComponent<HUD>();
+        if (hud.GetHealth()==0) { Time.timeScale = 0; }
     }
 }

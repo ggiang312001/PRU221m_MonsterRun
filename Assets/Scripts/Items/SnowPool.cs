@@ -7,6 +7,7 @@ public class SnowPool : MonoBehaviour
     public GameObject Snow; // The prefab to be pooled.
     public int poolSize = 2; // The number of instances to be created initially.
     public List<GameObject> pool;
+    public static GameObject currentObject;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +28,7 @@ public class SnowPool : MonoBehaviour
         {
             if (obj.transform.position.x < ScreenUtils.ScreenLeft)
             {
+                
                 obj.SetActive(false);
             }
         }

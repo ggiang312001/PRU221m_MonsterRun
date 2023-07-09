@@ -11,11 +11,10 @@ GameObject:
   - component: {fileID: 1383150033534458881}
   - component: {fileID: 2606923846826619627}
   - component: {fileID: 5809653099859158883}
-  - component: {fileID: 4530050202031596358}
-  - component: {fileID: -3802867597668245500}
+  - component: {fileID: 791540725530152359}
   m_Layer: 0
   m_Name: Mine
-  m_TagString: Untagged
+  m_TagString: Trap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73,8 +72,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -905255321
+  m_SortingLayer: 7
   m_SortingOrder: 6
   m_Sprite: {fileID: 21300000, guid: af88cdae619c04843b6dd497c1c5e61c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -97,10 +96,10 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.007380694, y: -0.2038467}
+  m_Offset: {x: 0.011864066, y: 0.05932015}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -111,9 +110,9 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.0714757, y: 0.062521935}
+  m_Size: {x: 1.1078074, y: 0.7315353}
   m_EdgeRadius: 0
---- !u!114 &4530050202031596358
+--- !u!114 &791540725530152359
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,18 +121,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3459028154823532149}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08822fcabbc79fb48b5f2841d7e91c19, type: 3}
+  m_Script: {fileID: 11500000, guid: 103d167f893388b43a199c147fbdd604, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-3802867597668245500
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3459028154823532149}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85c987e6dbe94a34a98385b01cf8bc43, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  explosion: {fileID: 6973526171193598071, guid: 2cd9fe3b11b23e243b3d5ef540815fda, type: 3}
