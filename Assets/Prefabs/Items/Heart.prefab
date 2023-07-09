@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2963292901526794615}
   - component: {fileID: 2963292901526794614}
   - component: {fileID: 3657110570885579764}
-  - component: {fileID: -8301764569938905700}
+  - component: {fileID: 7179944228128542584}
   m_Layer: 0
   m_Name: Heart
   m_TagString: Untagged
@@ -133,7 +133,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.86, y: 0.73}
   m_EdgeRadius: 0
---- !u!114 &-8301764569938905700
+--- !u!114 &7179944228128542584
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -142,6 +142,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 2963292901526794613}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8aeb97699606fb1499c2d9de0dc9e0b0, type: 3}
+  m_Script: {fileID: 11500000, guid: 887010c5a260ee8479bb31482d3f56a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

@@ -13,6 +13,6 @@ public class TrapController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector3.left * GameManage.speedTrap * Time.deltaTime + transform.position;
+        transform.position = Vector3.left * GameManage.speed * Time.deltaTime + transform.position;
     }
 }

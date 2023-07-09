@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class GameManage : MonoBehaviour
 {
-    public static float speedGround = 3;
-    public static float speedTrap = 3;
-    public static float speedItem = 3;
+    public static float speed = 3;
+
     float runTime;
     float changeSpeedGroundTime;
     // Start is called before the first frame update
@@ -22,9 +21,7 @@ public class GameManage : MonoBehaviour
         runTime += Time.deltaTime;
         if (runTime >= changeSpeedGroundTime)
         {
-            speedGround += 0.5f;
-            speedTrap += 0.5f;
-            speedItem += 0.5f;
+            speed += 0.5f;
             changeSpeedGroundTime += 15;
         }
     }

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1927003967465678281}
   - component: {fileID: 1927003967465678282}
   - component: {fileID: 1927003967465678283}
-  - component: {fileID: -6585147038791398535}
+  - component: {fileID: 4605890355997953708}
   m_Layer: 0
   m_Name: Fire
   m_TagString: Untagged
@@ -133,7 +133,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.2662878, y: 0.0355618}
   m_EdgeRadius: 0
---- !u!114 &-6585147038791398535
+--- !u!114 &4605890355997953708
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -142,6 +142,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1927003967465678277}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8aeb97699606fb1499c2d9de0dc9e0b0, type: 3}
+  m_Script: {fileID: 11500000, guid: 08822fcabbc79fb48b5f2841d7e91c19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

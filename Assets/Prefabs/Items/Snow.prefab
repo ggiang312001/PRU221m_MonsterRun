@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 48257348407049925}
   - component: {fileID: 48257348407049922}
   - component: {fileID: 1771860268606417833}
-  - component: {fileID: -6004885763038766509}
+  - component: {fileID: -7974649766900903432}
   m_Layer: 0
   m_Name: Snow
   m_TagString: Untagged
@@ -133,7 +133,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.93, y: 1.07}
   m_EdgeRadius: 0
---- !u!114 &-6004885763038766509
+--- !u!114 &-7974649766900903432
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -142,6 +142,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 48257348407049923}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8aeb97699606fb1499c2d9de0dc9e0b0, type: 3}
+  m_Script: {fileID: 11500000, guid: 887010c5a260ee8479bb31482d3f56a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

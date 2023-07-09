@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GroundSpawner : MonoBehaviour
@@ -14,6 +15,8 @@ public class GroundSpawner : MonoBehaviour
     public FirePool FirePool;
     public HeartPool HeartPool;
     public SnowPool SnowPool;
+    public FighterPool FighterPool;
+    public WizardPool WizardPool;
     bool hasGround = true;
     Timer SpawnTime;
     GameObject beforeGround;
@@ -50,18 +53,21 @@ public class GroundSpawner : MonoBehaviour
                beforeGround = Instantiate(Ground1, new Vector3(InitialGround.transform.GetChild(3).transform.position.x + 5, Random.Range(-1.35f, 2.5f), 0), Quaternion.identity);
                SpawnTrap(beforeGround, 14);
                SpawnItem(beforeGround, 14);
+               SpawnMonster(beforeGround, 14);
             }
             if (randomNum == 2)
             {
                 beforeGround = Instantiate(Ground2, new Vector3(InitialGround.transform.GetChild(3).transform.position.x + 5, Random.Range(-1.35f, 2.5f), 0), Quaternion.identity);
                 SpawnTrap(beforeGround, 18);
                 SpawnItem(beforeGround, 18);
+                SpawnMonster(beforeGround, 14);
             }
             if (randomNum == 3)
             {
                 beforeGround = Instantiate(Ground3, new Vector3(InitialGround.transform.GetChild(3).transform.position.x + 5, Random.Range(-1.35f, 2.5f), 0), Quaternion.identity);
                 SpawnTrap(beforeGround, 10);
                 SpawnItem(beforeGround, 10);
+                SpawnMonster(beforeGround, 14);
             }
             isFirst= false;
         }
@@ -74,22 +80,78 @@ public class GroundSpawner : MonoBehaviour
                 beforeGround = Instantiate(Ground1, new Vector3(beforeGround.transform.GetChild(3).transform.position.x + 5, Random.Range(-1.35f, 2.5f), 0), Quaternion.identity);
                 SpawnTrap(beforeGround, 14);
                 SpawnItem(beforeGround, 14);
+                SpawnMonster(beforeGround, 14);
             }
             if (randomNum == 2)
             {
                 beforeGround = Instantiate(Ground2, new Vector3(beforeGround.transform.GetChild(3).transform.position.x + 5, Random.Range(-1.35f, 2.5f), 0), Quaternion.identity);
                 SpawnTrap(beforeGround, 18);
                 SpawnItem(beforeGround, 18);
+                SpawnMonster(beforeGround, 14);
             }
             if (randomNum == 3)
             {
                 beforeGround = Instantiate(Ground3, new Vector3(beforeGround.transform.GetChild(3).transform.position.x + 5, Random.Range(-1.35f, 2.5f), 0), Quaternion.identity);
                 SpawnTrap(beforeGround, 10);
                 SpawnItem(beforeGround, 10);
+                SpawnMonster(beforeGround, 14);
             }
         }
         
        
+    }
+
+    private void SpawnMonster(GameObject ground, int child)
+    {
+        int appear = Random.Range(1, 3);
+        if (appear == 1)
+        {
+            List<GameObject> listFighters = FighterPool.pool;
+            List<GameObject> listWizard = WizardPool.pool;
+            int randomChild = Random.Range(1, child);
+            Vector3 position = ground.transform.GetChild(randomChild).transform.position;
+            int random = 1;
+            //int random = UnityEngine.Random.Range(1, 1);
+
+
+            if (random == 1)
+            {
+                int count = 0;
+                foreach (GameObject obj in listWizard)
+                {
+                    if (obj.active == false)
+                    {
+                        count++;
+                    }
+                }
+                if (count != 0)
+                {
+                    GameObject thorn = WizardPool.GetObject(); // Lấy trap từ pool
+                    thorn.transform.position = new Vector3(position.x, position.y + 0.8f, 0); // Set vị trí của trap
+                    thorn.SetActive(true); // Hiển thị trap lên màn hình
+                    count = 0;
+                }
+            }
+
+            if (random == 2)
+            {
+                int count = 0;
+                foreach (GameObject obj in listFighters)
+                {
+                    if (obj.active == false)
+                    {
+                        count++;
+                    }
+                }
+                if (count != 0)
+                {
+                    GameObject thorn = FighterPool.GetObject(); // Lấy trap từ pool
+                    thorn.transform.position = new Vector3(position.x, position.y + 0.8f, 0); // Set vị trí của trap
+                    thorn.SetActive(true); // Hiển thị trap lên màn hình
+                    count = 0;
+                }
+            }
+        }
     }
 
     private void SpawnItem(GameObject ground, int child)
