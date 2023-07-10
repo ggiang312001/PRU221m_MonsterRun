@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class FirePool : MonoBehaviour
@@ -14,7 +15,8 @@ public class FirePool : MonoBehaviour
         pool = new List<GameObject>();
         for (int i = 0; i < poolSize; i++)
         {
-            GameObject obj = Instantiate(Fire);
+            //GameObject obj = Instantiate(Fire);
+            GameObject obj = Transform[3].GetComponent<ITrapFactory>().CreateFireTrap();
             obj.SetActive(false);
             pool.Add(obj);
         }

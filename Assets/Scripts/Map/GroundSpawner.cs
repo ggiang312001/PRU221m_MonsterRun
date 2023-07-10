@@ -107,7 +107,8 @@ public class GroundSpawner : MonoBehaviour
         {
             List<GameObject> listFighters = FighterPool.pool;
             List<GameObject> listWizard = WizardPool.pool;
-            int randomChild = Random.Range(1, child);
+            //int randomChild = Random.Range(1, child);
+            int randomChild = child-1;
             Vector3 position = ground.transform.GetChild(randomChild).transform.position;
             int random = UnityEngine.Random.Range(1, 3);
             if (random == 1)
