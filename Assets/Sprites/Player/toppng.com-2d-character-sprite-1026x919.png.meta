@@ -138,7 +138,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: toppng.com-2d-character-sprite-1026x919_1
+      name: ide1
       rect:
         serializedVersion: 2
         x: 511
@@ -159,7 +159,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: toppng.com-2d-character-sprite-1026x919_2
+      name: ide2
       rect:
         serializedVersion: 2
         x: 597
@@ -180,7 +180,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: toppng.com-2d-character-sprite-1026x919_3
+      name: ide3
       rect:
         serializedVersion: 2
         x: 682
@@ -201,7 +201,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: toppng.com-2d-character-sprite-1026x919_4
+      name: ide4
       rect:
         serializedVersion: 2
         x: 763
@@ -486,21 +486,21 @@ TextureImporter:
     nameFileIdTable:
       run(4): 165748510
       run(3): 1793756411
+      ide1: -1275105703
       jump(2): -1844079012
+      ide2: -206137089
       toppng.com-2d-character-sprite-1026x919_0: 1463193498
-      toppng.com-2d-character-sprite-1026x919_2: -206137089
+      ide4: -705212365
       run(1): -1118171858
       run(2): 1319168387
-      toppng.com-2d-character-sprite-1026x919_4: -705212365
       nga(2): 1309919227
-      toppng.com-2d-character-sprite-1026x919_3: -1515107099
       nga(1): -1979755286
-      toppng.com-2d-character-sprite-1026x919_1: -1275105703
       jump(1): 1669328963
       run(6): -1007529112
       jump(3): -750572287
       run(5): 1530553642
       toppng.com-2d-character-sprite-1026x919_14: -1430492464
+      ide3: -1515107099
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

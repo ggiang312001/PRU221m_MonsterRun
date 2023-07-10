@@ -9,7 +9,7 @@ public class Explosion : MonoBehaviour
     void Start()
     {
         spawningTime = gameObject.AddComponent<Timer>();
-        spawningTime.Duration = 0.5f;
+        spawningTime.Duration = 0.7f;
         spawningTime.Run();
     }
 

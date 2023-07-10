@@ -8,6 +8,10 @@ public class HUD : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField]
     TextMeshProUGUI healthText;
+    [SerializeField]
+    TextMeshProUGUI timeText;
+    private float timer = 0.0f;
+    
     int health;
     const string bouncePrefix = "X ";
     void Start()
@@ -19,12 +23,23 @@ public class HUD : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        timer+= Time.deltaTime;
+        DisplayTime();
+    }
+
+    public void DisplayTime()
+    {
+        int minutes = Mathf.FloorToInt(timer / 60.0f);
+        int second = Mathf.FloorToInt(timer - minutes * 60);
+        timeText.text = string.Format("{0:00}:{1:00}", minutes, second);
     }
     public void ReduceHealth()
     {
-        health -= 1;
-        healthText.text = bouncePrefix + health.ToString();
+        if (health > 0)
+        {
+            health -= 1;
+            healthText.text = bouncePrefix + health.ToString();
+        }
     }
 
     public void Dead()
