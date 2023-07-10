@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TrapFactoryBuilding : MonoBehaviour
 {
+<<<<<<< Updated upstream
     // Start is called before the first frame update
     void Start()
     {
@@ -15,4 +16,7 @@ public class TrapFactoryBuilding : MonoBehaviour
     {
         
     }
+=======
+    public static Transform[] FactoryBuilding  = new Transform[4];
+>>>>>>> Stashed changes
 }

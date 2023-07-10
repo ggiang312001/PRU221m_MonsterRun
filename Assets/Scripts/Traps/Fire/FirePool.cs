@@ -15,8 +15,13 @@ public class FirePool : MonoBehaviour
         pool = new List<GameObject>();
         for (int i = 0; i < poolSize; i++)
         {
+<<<<<<< Updated upstream
             //GameObject obj = Instantiate(Fire);
             GameObject obj = Transform[3].GetComponent<ITrapFactory>().CreateFireTrap();
+=======
+            GameObject obj = Instantiate(Fire);
+            //GameObject obj = Transform[3].GetComponent<ITrapFactory>().CreateFireTrap();
+>>>>>>> Stashed changes
             obj.SetActive(false);
             pool.Add(obj);
         }
