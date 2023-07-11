@@ -1,3 +1,4 @@
+using Assets.Scripts.Traps;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,7 +15,7 @@ public class MinePool : MonoBehaviour
         pool = new List<GameObject>();
         for (int i = 0; i < poolSize; i++)
         {
-            GameObject obj = Instantiate(Mine);
+            GameObject obj = TrapFactoryBuilding.Instance._factoryBuildings.GetComponent<TrapFactory>().CreateMineTrap();
             obj.SetActive(false);
             pool.Add(obj);
         }

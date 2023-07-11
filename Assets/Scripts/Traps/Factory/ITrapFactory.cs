@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class ITrapFactory : MonoBehaviour
 {
-    public Transform trapTransform;
+    public Transform TrapTransform;
     public abstract GameObject CreateFireTrap();
     public abstract GameObject CreateMineTrap();
     public abstract GameObject CreateThornTrap();

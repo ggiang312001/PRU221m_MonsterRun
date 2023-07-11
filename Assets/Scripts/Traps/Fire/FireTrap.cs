@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FỉreTrap : TrapController
+public class FireTrap : TrapController
 {
     protected override void InteractWithPlayer()
     {

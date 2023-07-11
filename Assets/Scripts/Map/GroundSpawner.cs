@@ -176,7 +176,7 @@ public class GroundSpawner : MonoBehaviour
                 if (count != 0)
                 {
                     GameObject thorn = HeartPool.GetObject(); // Lấy trap từ pool
-                    thorn.transform.position = new Vector3(position.x, Random.Range(position.y, position.y + 2f), 0); // Set vị trí của trap
+                    thorn.transform.position = new Vector3(position.x, Random.Range(position.y + 1f, position.y + 3f), 0); // Set vị trí của trap
                     thorn.SetActive(true); // Hiển thị trap lên màn hình
                     count = 0;
                 }

@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HeartPool : MonoBehaviour
+public class SnowPool : MonoBehaviour
 {
-    public GameObject Heart; // The prefab to be pooled.
+    public GameObject Snow; // The prefab to be pooled.
     public int poolSize = 2; // The number of instances to be created initially.
     public List<GameObject> pool;
+    public static GameObject currentObject;
 
     // Start is called before the first frame update
     void Start()
@@ -14,7 +15,7 @@ public class HeartPool : MonoBehaviour
         pool = new List<GameObject>();
         for (int i = 0; i < poolSize; i++)
         {
-            GameObject obj = Instantiate(Heart);
+            GameObject obj = ItemFactoryBuilding.Instance._factoryBuildings.GetComponent<ItemFactory>().CreateSnow();
             obj.SetActive(false);
             pool.Add(obj);
         }
@@ -27,6 +28,7 @@ public class HeartPool : MonoBehaviour
         {
             if (obj.transform.position.x < ScreenUtils.ScreenLeft)
             {
+                
                 obj.SetActive(false);
             }
         }

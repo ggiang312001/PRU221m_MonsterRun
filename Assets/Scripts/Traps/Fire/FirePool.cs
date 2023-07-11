@@ -1,3 +1,4 @@
+using Assets.Scripts.Traps;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -15,13 +16,7 @@ public class FirePool : MonoBehaviour
         pool = new List<GameObject>();
         for (int i = 0; i < poolSize; i++)
         {
-<<<<<<< Updated upstream
-            //GameObject obj = Instantiate(Fire);
-            GameObject obj = Transform[3].GetComponent<ITrapFactory>().CreateFireTrap();
-=======
-            GameObject obj = Instantiate(Fire);
-            //GameObject obj = Transform[3].GetComponent<ITrapFactory>().CreateFireTrap();
->>>>>>> Stashed changes
+            GameObject obj = TrapFactoryBuilding.Instance._factoryBuildings.GetComponent<TrapFactory>().CreateFireTrap();
             obj.SetActive(false);
             pool.Add(obj);
         }

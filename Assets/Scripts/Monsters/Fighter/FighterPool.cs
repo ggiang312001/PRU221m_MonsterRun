@@ -14,7 +14,7 @@ public class FighterPool : MonoBehaviour
         pool = new List<GameObject>();
         for (int i = 0; i < poolSize; i++)
         {
-            GameObject obj = Instantiate(Fighter);
+            GameObject obj = MonsterFactoryBuilding.Instance._factoryBuildings.GetComponent<MonsterFactory>().CreateFighter();
             obj.SetActive(false);
             pool.Add(obj);
         }

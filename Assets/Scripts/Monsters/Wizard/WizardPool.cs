@@ -14,7 +14,7 @@ public class WizardPool : MonoBehaviour
         pool = new List<GameObject>();
         for (int i = 0; i < poolSize; i++)
         {
-            GameObject obj = Instantiate(Wizard);
+            GameObject obj = MonsterFactoryBuilding.Instance._factoryBuildings.GetComponent<MonsterFactory>().CreateWizard();
             obj.SetActive(false);
             pool.Add(obj);
         }
