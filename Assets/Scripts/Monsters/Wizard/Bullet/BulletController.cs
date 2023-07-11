@@ -6,9 +6,11 @@ using UnityEngine.UIElements;
 public class BulletController : MonoBehaviour
 {
     private WizardExplosionPool WizardExplosionPool;
+    HUD hud;
     // Start is called before the first frame update
     void Start()
     {
+        hud = GameObject.FindGameObjectWithTag("HUD").GetComponent<HUD>();
         WizardExplosionPool = FindObjectOfType<WizardExplosionPool>();
     }
 
@@ -22,6 +24,7 @@ public class BulletController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            hud.ReduceHealth();
             transform.gameObject.SetActive(false);
             List<GameObject> listFighters = WizardExplosionPool.pool;
             GameObject explosion = WizardExplosionPool.GetObject(); // Lấy trap từ pool
