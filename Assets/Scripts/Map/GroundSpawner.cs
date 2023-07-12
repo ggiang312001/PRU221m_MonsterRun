@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class GroundSpawner : MonoBehaviour
 {
-   
+    [SerializeField] private Transform spawnPoint;
     [SerializeField]
     GameObject InitialGround;
     public GameObject Ground1, Ground2, Ground3;
@@ -20,12 +20,14 @@ public class GroundSpawner : MonoBehaviour
     Timer SpawnTime;
     GameObject beforeGround;
     bool isFirst = true;
+
+    private string[] groundTag = new string[] { "Ground", "SnowItem", "HUD", "Ground3", "Ground4" };
+    private Transform currentGround;
+    private int posX;
     // Start is called before the first frame update
     void Start()
     {
-        SpawnTime = gameObject.AddComponent<Timer>();
-        SpawnTime.Duration = 2f;
-        SpawnTime.Run();
+        InvokeRepeating("SpawnGround", 2, 2);
     }
 
     // Update is called once per frame
@@ -45,62 +47,38 @@ public class GroundSpawner : MonoBehaviour
     }
     public void SpawnGround()
     {
-        if(isFirst == true) {
-            int randomNum = Random.Range(1, 4);
-            if (randomNum == 1)
-            {
-               beforeGround = Instantiate(Ground1, new Vector3(InitialGround.transform.GetChild(3).transform.position.x + 5, Random.Range(-1.35f, 2.5f), 0), Quaternion.identity);
-               SpawnTrap(beforeGround, 14);
-               SpawnItem(beforeGround, 14);
-                SpawnMonster(beforeGround, 14);
-            }
-            if (randomNum == 2)
-            {
-                beforeGround = Instantiate(Ground2, new Vector3(InitialGround.transform.GetChild(3).transform.position.x + 5, Random.Range(-1.35f, 2.5f), 0), Quaternion.identity);
-                SpawnTrap(beforeGround, 18);
-                SpawnItem(beforeGround, 18);
-                SpawnMonster(beforeGround, 18);
-            }
-            if (randomNum == 3)
-            {
-                beforeGround = Instantiate(Ground3, new Vector3(InitialGround.transform.GetChild(3).transform.position.x + 5, Random.Range(-1.35f, 2.5f), 0), Quaternion.identity);
-                SpawnTrap(beforeGround, 10);
-                SpawnItem(beforeGround, 10);
-                SpawnMonster(beforeGround, 10);
-            }
-            isFirst= false;
+        GameObject ground;
+        if (isFirst)
+        {
+            isFirst = !isFirst;
+            ground = ObjectPooling.SharedInstance.GetPooledObject(groundTag[2]);
         }
         else
         {
-            int randomNum = Random.Range(1, 4);
-            int randomX = Random.Range(3, 5);
-            if (randomNum == 1)
-            {
-                beforeGround = Instantiate(Ground1, new Vector3(beforeGround.transform.GetChild(3).transform.position.x + 5, Random.Range(-1.35f, 2.5f), 0), Quaternion.identity);
-                SpawnTrap(beforeGround, 14);
-                SpawnItem(beforeGround, 14);
-                SpawnMonster(beforeGround, 14);
-            }
-            if (randomNum == 2)
-            {
-                beforeGround = Instantiate(Ground2, new Vector3(beforeGround.transform.GetChild(3).transform.position.x + 5, Random.Range(-1.35f, 2.5f), 0), Quaternion.identity);
-                SpawnTrap(beforeGround, 18);
-                SpawnItem(beforeGround, 18);
-                SpawnMonster(beforeGround, 18);
-            }
-            if (randomNum == 3)
-            {
-                beforeGround = Instantiate(Ground3, new Vector3(beforeGround.transform.GetChild(3).transform.position.x + 5, Random.Range(-1.35f, 2.5f), 0), Quaternion.identity);
-                SpawnTrap(beforeGround, 10);
-                SpawnItem(beforeGround, 10);
-                SpawnMonster(beforeGround, 10);
-            }
+            // Lấy đối tượng Ground từ Object Pool
+            var randomTag = Random.Range(0, groundTag.Length);
+            ground = ObjectPooling.SharedInstance.GetPooledObject(groundTag[randomTag]);
         }
-        
-       
+
+
+        if (ground != null)
+        {
+
+            var offset = Random.Range(1, 5);
+            if (ground.tag == groundTag[0] || ground.tag == groundTag[1]) posX = 18;
+            else posX = 10;
+
+            ground.transform.position = new Vector2(spawnPoint.position.x, spawnPoint.position.y);
+            if (currentGround != null) ground.transform.position = new Vector3(currentGround.position.x + posX, spawnPoint.position.y + offset);
+            currentGround = ground.transform;
+
+            // Kích hoạt đối tượng Ground
+            ground.SetActive(true);
+        }
     }
 
-    private void SpawnMonster(GameObject ground, int child)
+
+private void SpawnMonster(GameObject ground, int child)
     {
         int appear = Random.Range(1, 1); // tỉ lệ xuất hiện quái
         if (appear == 1)
@@ -289,22 +267,6 @@ public class GroundSpawner : MonoBehaviour
                 }
 
             }
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            hasGround = true;
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            hasGround = false;
         }
     }
 }
