@@ -50,9 +50,9 @@ public class GroundSpawner : MonoBehaviour
             if (ground != null)
             {
 
-                var offset = Random.Range(-1, 3);
-                if (currentGround.tag == groundTag[0] || currentGround.tag == groundTag[1]) posX = 23;
-                else posX = 16;
+                var offset = Random.Range(-1, 2);
+                if (currentGround.tag == groundTag[0] || currentGround.tag == groundTag[1]) posX = 21;
+                else posX = 15;
 
                 ground.transform.position = new Vector2(spawnPoint.position.x, spawnPoint.position.y);
                 if (currentGround != null) ground.transform.position = new Vector3(currentGround.position.x + posX, spawnPoint.position.y + offset);
