@@ -51,7 +51,7 @@ public class GroundSpawner : MonoBehaviour
             {
 
                 var offset = Random.Range(-1, 3);
-                if (currentGround.tag == groundTag[0] || currentGround.tag == groundTag[1]) posX = 20;
+                if (currentGround.tag == groundTag[0] || currentGround.tag == groundTag[1]) posX = 23;
                 else posX = 16;
 
                 ground.transform.position = new Vector2(spawnPoint.position.x, spawnPoint.position.y);
