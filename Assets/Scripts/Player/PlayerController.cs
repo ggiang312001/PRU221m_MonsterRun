@@ -57,9 +57,9 @@ public class PlayerController : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
        
-        if (collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("HUD") || collision.gameObject.CompareTag("SnowItem")) 
         {
-            if (transform.position.y >= collision.gameObject.transform.GetChild(0).gameObject.transform.position.y)
+            if (transform.position.y >= collision.gameObject.transform.position.y)
             {
                 //anm.SetBool("isRun", true);
                 //anm.SetBool("isJump", false);

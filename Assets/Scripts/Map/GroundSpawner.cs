@@ -17,63 +17,53 @@ public class GroundSpawner : MonoBehaviour
     public FighterPool FighterPool;
     public WizardPool WizardPool;
     bool hasGround = true;
-    Timer SpawnTime;
     GameObject beforeGround;
     bool isFirst = true;
-
-    private string[] groundTag = new string[] { "Ground", "SnowItem", "HUD", "Ground3", "Ground4" };
+    private GameObject ground;
+    private string[] groundTag = new string[] { "Ground", "SnowItem", "HUD"};
     private Transform currentGround;
     private int posX;
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("SpawnGround", 2, 2);
+        isFirst = true;
+        InvokeRepeating("SpawnGround", 1, 2);
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        //if (!hasGround)
-        //{
-        if (SpawnTime.Finished)
-        {
-            SpawnGround();
-            SpawnTime.Duration = 2f;
-            SpawnTime.Run();
-        }
-            
-        //    hasGround = true;
-        //}
-    }
+  
     public void SpawnGround()
     {
-        GameObject ground;
         if (isFirst)
         {
-            isFirst = !isFirst;
-            ground = ObjectPooling.SharedInstance.GetPooledObject(groundTag[2]);
+            isFirst = false;
+            ground = ObjectPooling.SharedInstance.GetPooledObject(groundTag[1]);
+            ground.transform.position = spawnPoint.position;
+            currentGround = ground.transform;
         }
         else
         {
             // Lấy đối tượng Ground từ Object Pool
             var randomTag = Random.Range(0, groundTag.Length);
             ground = ObjectPooling.SharedInstance.GetPooledObject(groundTag[randomTag]);
-        }
 
+            if (ground != null)
+            {
 
-        if (ground != null)
-        {
+                var offset = Random.Range(-1, 3);
+                if (currentGround.tag == groundTag[0] || currentGround.tag == groundTag[1]) posX = 20;
+                else posX = 16;
 
-            var offset = Random.Range(1, 5);
-            if (ground.tag == groundTag[0] || ground.tag == groundTag[1]) posX = 18;
-            else posX = 10;
+                ground.transform.position = new Vector2(spawnPoint.position.x, spawnPoint.position.y);
+                if (currentGround != null) ground.transform.position = new Vector3(currentGround.position.x + posX, spawnPoint.position.y + offset);
+                currentGround = ground.transform;
 
-            ground.transform.position = new Vector2(spawnPoint.position.x, spawnPoint.position.y);
-            if (currentGround != null) ground.transform.position = new Vector3(currentGround.position.x + posX, spawnPoint.position.y + offset);
-            currentGround = ground.transform;
+                // Kích hoạt đối tượng Ground
+                ground.SetActive(true);
 
-            // Kích hoạt đối tượng Ground
-            ground.SetActive(true);
+                Debug.Log(currentGround.tag);
+            }
+
         }
     }
 
