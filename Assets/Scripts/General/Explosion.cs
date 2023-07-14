@@ -16,7 +16,7 @@ public class Explosion : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector3.left * GameManage.speed * Time.deltaTime + transform.position;
+        transform.position = Vector3.left * GameManage.Instance.speed * Time.deltaTime + transform.position;
         if (spawningTime.Finished)
         {
             Destroy(gameObject);

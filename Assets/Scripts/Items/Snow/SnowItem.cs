@@ -16,7 +16,7 @@ public class SnowItem : ItemController
     // Update is called once per frame
     void Update()
     { 
-        transform.position = Vector3.left * GameManage.speed * Time.deltaTime + transform.position;
+        transform.position = Vector3.left * GameManage.Instance.speed * Time.deltaTime + transform.position;
     }
 
 
@@ -26,9 +26,9 @@ public class SnowItem : ItemController
         gameObject.SetActive(false);
         if (numberSnowItem <= 1)
         {
-            speedBeforeSnow = GameManage.speed;
-            GameManage.isSnow = true;
-            GameManage.speed -= 1f;
+            speedBeforeSnow = GameManage.Instance.speed;
+            GameManage.Instance.isSnow = true;
+            GameManage.Instance.speed -= 1f;
         }
     }
 }

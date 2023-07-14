@@ -4,12 +4,35 @@ using UnityEngine;
 
 public class GameManage : MonoBehaviour
 {
-    public static float speed = 3;
-    public static bool isSnow = false;
+    private static GameManage instance = null;
+    public float speed = 3;
+    public bool isSnow = false;
     float runTime;
     float time;
     float changeSpeedTime;
     // Start is called before the first frame update
+
+    public static GameManage Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = new GameManage();
+            }
+            return instance;
+        }
+    }
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        instance = this;
+    }
     void Start()
     {
         runTime = 0;
