@@ -6,11 +6,33 @@ using UnityEngine;
 
 public class FirePool : MonoBehaviour
 {
+    private static FirePool instance = null;
     public GameObject Fire; // The prefab to be pooled.
     public int poolSize = 5; // The number of instances to be created initially.
     public List<GameObject> pool;
-
+    public List<GameObject> listFireActive;
     // Start is called before the first frame update
+    public static FirePool Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = new FirePool();
+            }
+            return instance;
+        }
+    }
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        instance = this;
+    }
     void Start()
     {
         pool = new List<GameObject>();
@@ -46,6 +68,7 @@ public class FirePool : MonoBehaviour
             if (obj.active == false)
             {
                 obj.SetActive(true);
+                listFireActive.Add(obj);
                 return obj;
             }
         }
