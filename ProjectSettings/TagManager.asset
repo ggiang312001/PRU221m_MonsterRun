@@ -10,6 +10,8 @@ TagManager:
   - SnowItem
   - HUD
   - HeartItem
+  - Ground2
+  - Ground3
   layers:
   - Default
   - TransparentFX
