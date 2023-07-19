@@ -59,12 +59,12 @@ public class HUD : MonoBehaviour
     }
     public void ReduceHealth()
     {
-        if (health > 0)
+        if (0 < health)
         {
             health -= 1;
             healthText.text = bouncePrefix + health.ToString();
         }
-        else GameOver();
+        else if (health < 1)GameOver();
     }
 
     public void Dead()
