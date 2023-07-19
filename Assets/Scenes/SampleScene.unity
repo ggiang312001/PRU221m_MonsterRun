@@ -155,7 +155,6 @@ MonoBehaviour:
   Snow: {fileID: 48257348407049923, guid: 4ff3d168489ae5c41a75797766cfad10, type: 3}
   poolSize: 2
   pool: []
-  listSnowActive: []
 --- !u!4 &23775910
 Transform:
   m_ObjectHideFlags: 0
@@ -564,7 +563,6 @@ MonoBehaviour:
   Thorn: {fileID: 6581211537895082195, guid: c71457783a4555842b2297f3945a3d6f, type: 3}
   poolSize: 5
   pool: []
-  listThornActive: []
 --- !u!4 &209418882
 Transform:
   m_ObjectHideFlags: 0
@@ -1357,7 +1355,6 @@ MonoBehaviour:
   Fighter: {fileID: 2390456111254945712, guid: 0fb8dfa2391999442ba4363ed0fd4569, type: 3}
   poolSize: 3
   pool: []
-  listFighterActive: []
 --- !u!1 &727438515
 GameObject:
   m_ObjectHideFlags: 0
@@ -1526,7 +1523,6 @@ MonoBehaviour:
   Wizard: {fileID: 4225264348852287559, guid: 0f5296420f6928449a8cb8ee99da6d63, type: 3}
   poolSize: 3
   pool: []
-  listWizardActive: []
 --- !u!1 &890473168 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4849303593473966755, guid: 636470bfe233cff4f8937c1ec7d68550, type: 3}
@@ -1613,7 +1609,6 @@ MonoBehaviour:
   Fire: {fileID: 1927003967465678277, guid: 7781ee7d6f001ad49b811e39dc503fdc, type: 3}
   poolSize: 5
   pool: []
-  listFireActive: []
 --- !u!4 &907270927
 Transform:
   m_ObjectHideFlags: 0
@@ -1807,6 +1802,7 @@ Transform:
   - {fileID: 731686248}
   - {fileID: 2042522613}
   - {fileID: 977597139}
+  - {fileID: 1676014759}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2569,7 +2565,6 @@ MonoBehaviour:
   Mine: {fileID: 3459028154823532149, guid: e1076f3c85acd8847a5b377b48e703ea, type: 3}
   poolSize: 5
   pool: []
-  listMineActive: []
 --- !u!4 &1536405059
 Transform:
   m_ObjectHideFlags: 0
@@ -2928,6 +2923,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1629491309}
   m_CullTransparentMesh: 1
+--- !u!1 &1676014758
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1676014759}
+  m_Layer: 0
+  m_Name: Ground
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1676014759
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1676014758}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 919853036}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1797030382
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3042,7 +3068,6 @@ MonoBehaviour:
   Heart: {fileID: 2963292901526794613, guid: a060347cf30166a4890a4c109c8d8be1, type: 3}
   poolSize: 2
   pool: []
-  listHeartActive: []
 --- !u!4 &1857055679
 Transform:
   m_ObjectHideFlags: 0
