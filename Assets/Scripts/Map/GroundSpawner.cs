@@ -54,8 +54,9 @@ public class GroundSpawner : MonoBehaviour
         beforeGround = ObjectPooling.SharedInstance.GetPooledObject("Ground");
         if (beforeGround != null)
         {
+            var offset = Random.Range(-1, 2);
             beforeGround.SetActive(true);
-            beforeGround.transform.position = spawnPoint.position;
+            beforeGround.transform.position = new Vector3(spawnPoint.position.x, spawnPoint.position.y + offset);
             beforeGround.transform.rotation = Quaternion.identity;
         }
         SpawnTrap(beforeGround, 14);
@@ -71,8 +72,9 @@ public class GroundSpawner : MonoBehaviour
         beforeGround = ObjectPooling.SharedInstance.GetPooledObject("Ground2");
         if (beforeGround != null)
         {
+            var offset = Random.Range(-1, 2);
             beforeGround.SetActive(true);
-            beforeGround.transform.position = spawnPoint.position;
+            beforeGround.transform.position = new Vector3(spawnPoint.position.x, spawnPoint.position.y + offset);
             beforeGround.transform.rotation = Quaternion.identity;
         }
         SpawnTrap(beforeGround, 14);
@@ -89,8 +91,9 @@ public class GroundSpawner : MonoBehaviour
         StartCoroutine(Ground1());
         if (beforeGround != null)
         {
+            var offset = Random.Range(-1, 2);
             beforeGround.SetActive(true);
-            beforeGround.transform.position = spawnPoint.position;
+            beforeGround.transform.position = new Vector3(spawnPoint.position.x, spawnPoint.position.y + offset);
             beforeGround.transform.rotation = Quaternion.identity;
         }
         SpawnTrap(beforeGround, 14);
@@ -99,57 +102,7 @@ public class GroundSpawner : MonoBehaviour
     }
 
 
-    public void SpawnGround()
-    {
-        if(isFirst == true) {
-            int randomNum = Random.Range(1, 4);
-            if (randomNum == 1)
-            {
-                 currentGround =  beforeGround = ObjectPooling.SharedInstance.GetPooledObject("Ground");
-                if (beforeGround != null)
-                {
-                    beforeGround.SetActive(true);
-                    beforeGround.transform.position = new Vector3(InitialGround.transform.GetChild(3).transform.position.x + 5, Random.Range(-1.35f, 2.5f), 0);
-                    beforeGround.transform.rotation = Quaternion.identity;
-                }
-
-
-                SpawnTrap(beforeGround, 14);
-               SpawnItem(beforeGround, 14);
-                SpawnMonster(beforeGround, 14);
-            }
-            if (randomNum == 2)
-            {
-              currentGround=   beforeGround = ObjectPooling.SharedInstance.GetPooledObject("Ground2");
-                if (beforeGround != null)
-                {
-                    beforeGround.SetActive(true);
-                     beforeGround.transform.position = new Vector3(InitialGround.transform.GetChild(3).transform.position.x + 5, Random.Range(-1.35f, 2.5f), 0);
-                    beforeGround.transform.rotation = Quaternion.identity;
-                }
-                SpawnTrap(beforeGround, 18);
-                SpawnItem(beforeGround, 18);
-                SpawnMonster(beforeGround, 18);
-            }
-            if (randomNum == 3)
-            {
-              currentGround =  beforeGround = ObjectPooling.SharedInstance.GetPooledObject("Ground3");
-                if (beforeGround != null)
-                    if (beforeGround != null)
-                    {
-                        beforeGround.SetActive(true);
-                        beforeGround.transform.position = new Vector3(InitialGround.transform.GetChild(3).transform.position.x + 5, Random.Range(-1.35f, 2.5f), 0);
-                        beforeGround.transform.rotation = Quaternion.identity;
-                    }
-                SpawnTrap(beforeGround, 10);
-                SpawnItem(beforeGround, 10);
-                SpawnMonster(beforeGround, 10);
-            }
-            isFirst= false;
-        }
-        
-       
-    }
+   
 
     private void SpawnMonster(GameObject ground, int child)
     {

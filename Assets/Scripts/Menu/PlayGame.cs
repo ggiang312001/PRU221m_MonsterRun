@@ -20,5 +20,6 @@ public class PlayGame : MonoBehaviour
     {
         PlayerPrefs.SetInt("Choice", 1);
         SceneManager.LoadScene(sceneName);
+        Time.timeScale= 1;
     }
 }

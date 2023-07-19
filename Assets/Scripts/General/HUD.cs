@@ -35,7 +35,8 @@ public class HUD : MonoBehaviour
 
     public void Replay() 
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
+        Time.timeScale = 1f;
     }
 
     // Update is called once per frame
