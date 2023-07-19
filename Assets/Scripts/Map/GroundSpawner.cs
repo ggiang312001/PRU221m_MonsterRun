@@ -59,9 +59,9 @@ public class GroundSpawner : MonoBehaviour
             beforeGround.transform.position = new Vector3(spawnPoint.position.x, spawnPoint.position.y + offset);
             beforeGround.transform.rotation = Quaternion.identity;
         }
-        SpawnTrap(beforeGround, 14);
-        SpawnItem(beforeGround, 14);
-        SpawnMonster(beforeGround, 14);
+        SpawnTrap(beforeGround, 15);
+        SpawnItem(beforeGround, 15);
+        SpawnMonster(beforeGround, 15);
     }
     
     
@@ -77,9 +77,9 @@ public class GroundSpawner : MonoBehaviour
             beforeGround.transform.position = new Vector3(spawnPoint.position.x, spawnPoint.position.y + offset);
             beforeGround.transform.rotation = Quaternion.identity;
         }
-        SpawnTrap(beforeGround, 14);
-        SpawnItem(beforeGround, 14);
-        SpawnMonster(beforeGround, 14);
+        SpawnTrap(beforeGround, 18);
+        SpawnItem(beforeGround, 18);
+        SpawnMonster(beforeGround, 18);
 
     }
 
@@ -96,9 +96,9 @@ public class GroundSpawner : MonoBehaviour
             beforeGround.transform.position = new Vector3(spawnPoint.position.x, spawnPoint.position.y + offset);
             beforeGround.transform.rotation = Quaternion.identity;
         }
-        SpawnTrap(beforeGround, 14);
-        SpawnItem(beforeGround, 14);
-        SpawnMonster(beforeGround, 14);
+        SpawnTrap(beforeGround, 10);
+        SpawnItem(beforeGround, 10);
+        SpawnMonster(beforeGround, 10);
     }
 
 
