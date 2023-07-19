@@ -179,10 +179,9 @@ public class GroundSpawner : MonoBehaviour
         {
             List<GameObject> listFighters = FighterPool.pool;
             List<GameObject> listWizard = WizardPool.pool;
-            //int randomChild = Random.Range(1, child);
-            int randomChild = child - 1;
+            int randomChild = child - 1; // sinh quái ở ô đất cuối cùng
             Vector3 position = ground.transform.GetChild(randomChild).transform.position;
-            int random = UnityEngine.Random.Range(1, 3);
+            int random = Random.Range(1, 3);
             if (random == 1)
             {
                 int count = 0;
@@ -225,71 +224,75 @@ public class GroundSpawner : MonoBehaviour
 
     private void SpawnItem(GameObject ground, int child)
     {
-        int appear = Random.Range(1, 2);
-        if (appear == 1)
+        List<GameObject> listHearts = HeartPool.pool;
+        List<GameObject> listSnows = SnowPool.pool;
+        List<GameObject> listShields = ShieldPool.pool;
+        int randomChild = Random.Range(1, child);
+        Vector3 position = ground.transform.GetChild(randomChild).transform.position;
+        
+        int random = 0;
+        int appearPercent = Random.Range(1, 6); // set tỉ lệ xuất hiện item: 20% xuất hiện item mỗi khi xuất hiện ground
+        if (appearPercent == 1)
         {
-            List<GameObject> listHearts = HeartPool.pool;
-            List<GameObject> listSnows = SnowPool.pool;
-            List<GameObject> listShields = ShieldPool.pool;
-            int randomChild = Random.Range(1, child);
-            Vector3 position = ground.transform.GetChild(randomChild).transform.position;
-            int random = UnityEngine.Random.Range(1, 4);
+            random = Random.Range(1, 4);
+        }
 
-            if (random == 1)
+        // sinh item
+        if (random == 1)
+        {
+            int count = 0;
+            foreach (GameObject obj in listHearts)
             {
-                int count = 0;
-                foreach (GameObject obj in listHearts)
+                if (obj.active == false)
                 {
-                    if (obj.active == false)
-                    {
-                        count++;
-                    }
-                }
-                if (count != 0)
-                {
-                    GameObject thorn = HeartPool.GetObject(); // Lấy trap từ pool
-                    thorn.transform.position = new Vector3(position.x, Random.Range(position.y + 1f, position.y + 3f), 0); // Set vị trí của trap
-                    thorn.SetActive(true); // Hiển thị trap lên màn hình
-                    count = 0;
+                    count++;
                 }
             }
-            if (random == 2)
+            if (count != 0)
             {
-                int count = 0;
-                foreach (GameObject obj in listSnows)
-                {
-                    if (obj.active == false)
-                    {
-                        count++;
-                    }
-                }
-                if (count != 0)
-                {
-                    GameObject woodBox = SnowPool.GetObject(); // Lấy trap từ pool
-                    woodBox.transform.position = new Vector3(position.x, Random.Range(position.y + 1f, position.y + 3f), 0); // Set vị trí của trap
-                    woodBox.SetActive(true); // Hiển thị trap lên màn hình
-                    count = 0;
-                }
-            }
-            if (random == 3)
-            {
-                int count = 0;
-                foreach (GameObject obj in listShields)
-                {
-                    if (obj.active == false)
-                    {
-                        count++;
-                    }
-                }
-                if (count != 0)
-                {
-                    GameObject shield = ShieldPool.GetObject(); // Lấy trap từ pool
-                    shield.transform.position = new Vector3(position.x, Random.Range(position.y + 1f, position.y + 3f), 0); // Set vị trí của trap
-                    shield.SetActive(true); // Hiển thị trap lên màn hình
-                    count = 0;
-                }
+                GameObject thorn = HeartPool.GetObject(); // Lấy trap từ pool
+                thorn.transform.position = new Vector3(position.x, Random.Range(position.y + 1f, position.y + 3f), 0); // Set vị trí của trap
+                thorn.SetActive(true); // Hiển thị trap lên màn hình
+                count = 0;
             }
         }
+        if (random == 2)
+        {
+            int count = 0;
+            foreach (GameObject obj in listSnows)
+            {
+                if (obj.active == false)
+                {
+                    count++;
+                }
+            }
+            if (count != 0)
+            {
+                GameObject woodBox = SnowPool.GetObject(); // Lấy trap từ pool
+                woodBox.transform.position = new Vector3(position.x, Random.Range(position.y + 1f, position.y + 3f), 0); // Set vị trí của trap
+                woodBox.SetActive(true); // Hiển thị trap lên màn hình
+                count = 0;
+            }
+        }
+        if (random == 3)
+        {
+            int count = 0;
+            foreach (GameObject obj in listShields)
+            {
+                if (obj.active == false)
+                {
+                    count++;
+                }
+            }
+            if (count != 0)
+            {
+                GameObject shield = ShieldPool.GetObject(); // Lấy trap từ pool
+                shield.transform.position = new Vector3(position.x, Random.Range(position.y + 1f, position.y + 3f), 0); // Set vị trí của trap
+                shield.SetActive(true); // Hiển thị trap lên màn hình
+                count = 0;
+            }
+        }
+        
     }
 
     private void SpawnTrap(GameObject ground, int child)
@@ -297,17 +300,37 @@ public class GroundSpawner : MonoBehaviour
         List<GameObject> listThorns = ThornPool.pool;
         List<GameObject> listMines = MinePool.pool;
         List<GameObject> listFires = FirePool.pool;
-        int randomNum = UnityEngine.Random.Range(2, 4);
         List<int> spawned = new List<int>();
 
+        // xét số lượng bẫy sinh ra dựa trên chiều dài ô đất
+        int randomNum ;
+        if(child <= 10)
+        {
+            randomNum = Random.Range(1, 2);
+        }
+        else if(child > 10 && child <= 15)
+        {
+            randomNum = Random.Range(1, 3);
+        }
+        else{
+            randomNum = Random.Range(1, 4);
+        }
+
+        // sinh bẫy
         for (int i = 0; i < randomNum; i++)
         {
             int randomTrap = UnityEngine.Random.Range(1, 4);
             int randomChild;
+            
+            // kiểm tra vị trí ô đất nào đã có bẫy rồi thì không sinh bẫy tại vị trí đó nữa
             while (true)
             {
-                randomChild = Random.Range(1, child);
                 int count = 0;
+                randomChild = Random.Range(1, child);
+                if(randomChild == 1 || randomChild == child -1) // không sinh ra bẫy ở vị trí đầu và vị trí cuối
+                {
+                    count++;
+                }
                 foreach (int temp in spawned)
                 {
                     if (temp == randomChild)
