@@ -61,9 +61,9 @@ public class GroundSpawner : MonoBehaviour
             beforeGround.transform.position = new Vector3(spawnPoint.position.x, spawnPoint.position.y + offset);
             beforeGround.transform.rotation = Quaternion.identity;
         }
-        SpawnTrap(beforeGround, 15);
-        SpawnItem(beforeGround, 15);
-        SpawnMonster(beforeGround, 15);
+        SpawnTrap(beforeGround, 14);
+        SpawnItem(beforeGround, 14);
+        SpawnMonster(beforeGround, 14);
     }
 
 

@@ -17,6 +17,7 @@ TagManager:
   - MineTrap
   - ThornTrap
   - FireTrap
+  - Ground3
   layers:
   - Default
   - TransparentFX
