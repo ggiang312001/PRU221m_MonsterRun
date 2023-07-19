@@ -251,7 +251,7 @@ public class GroundSpawner : MonoBehaviour
             if (count != 0)
             {
                 GameObject thorn = HeartPool.GetObject(); // Lấy trap từ pool
-                thorn.transform.position = new Vector3(position.x, Random.Range(position.y + 1f, position.y + 3f), 0); // Set vị trí của trap
+                thorn.transform.position = new Vector3(position.x, Random.Range(position.y + 0.8f, position.y + 3f), 0); // Set vị trí của trap 
                 thorn.SetActive(true); // Hiển thị trap lên màn hình
                 count = 0;
             }
@@ -269,7 +269,7 @@ public class GroundSpawner : MonoBehaviour
             if (count != 0)
             {
                 GameObject woodBox = SnowPool.GetObject(); // Lấy trap từ pool
-                woodBox.transform.position = new Vector3(position.x, Random.Range(position.y + 1f, position.y + 3f), 0); // Set vị trí của trap
+                woodBox.transform.position = new Vector3(position.x, Random.Range(position.y + 0.8f, position.y + 3f), 0); // Set vị trí của trap
                 woodBox.SetActive(true); // Hiển thị trap lên màn hình
                 count = 0;
             }
@@ -287,7 +287,7 @@ public class GroundSpawner : MonoBehaviour
             if (count != 0)
             {
                 GameObject shield = ShieldPool.GetObject(); // Lấy trap từ pool
-                shield.transform.position = new Vector3(position.x, Random.Range(position.y + 1f, position.y + 3f), 0); // Set vị trí của trap
+                shield.transform.position = new Vector3(position.x, Random.Range(position.y + 0.8f, position.y + 3f), 0); // Set vị trí của trap
                 shield.SetActive(true); // Hiển thị trap lên màn hình
                 count = 0;
             }
@@ -378,7 +378,7 @@ public class GroundSpawner : MonoBehaviour
                 if (count != 0)
                 {
                     GameObject mine = MinePool.GetObject(); // Lấy trap từ pool
-                    mine.transform.position = new Vector3(position.x, position.y + 0.55f, 0); // Set vị trí của trap
+                    mine.transform.position = new Vector3(position.x, position.y + 0.6f, 0); // Set vị trí của trap
                     mine.SetActive(true); // Hiển thị trap lên màn hình
                     count = 0;
                 }
@@ -397,7 +397,7 @@ public class GroundSpawner : MonoBehaviour
                 if (count != 0)
                 {
                     GameObject fire = FirePool.GetObject(); // Lấy trap từ pool
-                    fire.transform.position = new Vector3(position.x, position.y + 0.9f, 0); // Set vị trí của trap
+                    fire.transform.position = new Vector3(position.x, position.y + 0.95f, 0); // Set vị trí của trap
                     fire.SetActive(true); // Hiển thị trap lên màn hình
                     count = 0;
                 }
