@@ -263,7 +263,7 @@ GameObject:
   - component: {fileID: 6988814259130105660}
   - component: {fileID: 3120977522809102968}
   m_Layer: 0
-  m_Name: GroundEnd
+  m_Name: GroundMid(11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -325,7 +325,7 @@ SpriteRenderer:
   m_SortingLayerID: -905255321
   m_SortingLayer: 7
   m_SortingOrder: 6
-  m_Sprite: {fileID: 21300000, guid: e7952725fc766e94aa72b8316540e0e3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1bde893031629b6479a9119f59198ade, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -515,7 +515,7 @@ GameObject:
   - component: {fileID: 7292972116269049695}
   - component: {fileID: 1402210562363272638}
   m_Layer: 0
-  m_Name: GroundMid (11)
+  m_Name: GroundEnd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -577,7 +577,7 @@ SpriteRenderer:
   m_SortingLayerID: -905255321
   m_SortingLayer: 7
   m_SortingOrder: 6
-  m_Sprite: {fileID: 21300000, guid: 1bde893031629b6479a9119f59198ade, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e7952725fc766e94aa72b8316540e0e3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -598,7 +598,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4891977954893508790}
   - component: {fileID: 1533025811}
-  - component: {fileID: 6186072592628232283}
+  - component: {fileID: 787175149}
   m_Layer: 0
   m_Name: Ground1
   m_TagString: Ground
@@ -649,7 +649,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 5.5439115, y: -1.2724838}
+  m_Offset: {x: 5.517543, y: -1.0066154}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -660,9 +660,9 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 15.795995, y: 0.7502041}
+  m_Size: {x: 15.077574, y: 0.21190763}
   m_EdgeRadius: 0
---- !u!114 &6186072592628232283
+--- !u!114 &787175149
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
