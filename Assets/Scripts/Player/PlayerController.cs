@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+
     public Rigidbody2D rgd2d;
     HUD hud;
     float runSpeed;
@@ -36,8 +37,8 @@ public class PlayerController : MonoBehaviour
         if (ScreenUtils.ScreenBottom > transform.position.y)
         {
             hud.Dead();
+           
             //gameObject.SetActive(false);
-            Time.timeScale = 0;
         }
     }
     void OnCollisionEnter2D(Collision2D collision)

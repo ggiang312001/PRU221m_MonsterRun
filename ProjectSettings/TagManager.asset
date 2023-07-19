@@ -12,6 +12,7 @@ TagManager:
   - HeartItem
   - Ground2
   - Ground3
+  - DeActive
   layers:
   - Default
   - TransparentFX

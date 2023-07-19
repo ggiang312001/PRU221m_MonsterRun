@@ -64,7 +64,7 @@ public class GameManage : MonoBehaviour
             runTime += Time.deltaTime;
             if (runTime >= changeSpeedTime)
             {
-                speed += 0.5f;
+                //speed += 0.5f;
                 changeSpeedTime += 15;
             }
         } 

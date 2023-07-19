@@ -5,10 +5,9 @@ using UnityEngine;
 
 public class GroundSpawner : MonoBehaviour
 {
-   
+    [SerializeField] private Transform spawnPoint;
     [SerializeField]
     GameObject InitialGround;
-    public GameObject Ground1, Ground2, Ground3;
     public ThornPool ThornPool;
     public MinePool MinePool;
     public FirePool FirePool;
@@ -26,10 +25,10 @@ public class GroundSpawner : MonoBehaviour
     void Start()
     {
         SpawnTime = gameObject.AddComponent<Timer>();
+        StartCoroutine(Ground1());
         //SpawnTime.Duration = 2f;
         //SpawnTime.Run();
-        InvokeRepeating("SpawnGround", 0, 2f);
-
+         
     }
 
     // Update is called once per frame
@@ -47,6 +46,59 @@ public class GroundSpawner : MonoBehaviour
         //    hasGround = true;
         //}
     }
+    
+    private IEnumerator Ground1()
+    {
+        yield return new WaitForSeconds(5f);
+       StartCoroutine(SpawnGround2());
+        beforeGround = ObjectPooling.SharedInstance.GetPooledObject("Ground");
+        if (beforeGround != null)
+        {
+            beforeGround.SetActive(true);
+            beforeGround.transform.position = spawnPoint.position;
+            beforeGround.transform.rotation = Quaternion.identity;
+        }
+        SpawnTrap(beforeGround, 14);
+        SpawnItem(beforeGround, 14);
+        SpawnMonster(beforeGround, 14);
+    }
+    
+    
+    private IEnumerator SpawnGround2()
+    {
+        yield return new WaitForSeconds(6f);
+        StartCoroutine(SpawnGround3());
+        beforeGround = ObjectPooling.SharedInstance.GetPooledObject("Ground2");
+        if (beforeGround != null)
+        {
+            beforeGround.SetActive(true);
+            beforeGround.transform.position = spawnPoint.position;
+            beforeGround.transform.rotation = Quaternion.identity;
+        }
+        SpawnTrap(beforeGround, 14);
+        SpawnItem(beforeGround, 14);
+        SpawnMonster(beforeGround, 14);
+
+    }
+
+
+    private IEnumerator SpawnGround3()
+    {
+        yield return new WaitForSeconds(7f);
+        beforeGround = ObjectPooling.SharedInstance.GetPooledObject("Ground3");
+        StartCoroutine(Ground1());
+        if (beforeGround != null)
+        {
+            beforeGround.SetActive(true);
+            beforeGround.transform.position = spawnPoint.position;
+            beforeGround.transform.rotation = Quaternion.identity;
+        }
+        SpawnTrap(beforeGround, 14);
+        SpawnItem(beforeGround, 14);
+        SpawnMonster(beforeGround, 14);
+    }
+
+
     public void SpawnGround()
     {
         if(isFirst == true) {
@@ -57,10 +109,7 @@ public class GroundSpawner : MonoBehaviour
                 if (beforeGround != null)
                 {
                     beforeGround.SetActive(true);
-                    if (currentGround.transform.tag == "Ground") beforeGround.transform.position = new Vector3(currentGround.transform.position.x + 10, currentGround.transform.position.y);
-                    else if (currentGround.transform.tag == "Ground2") beforeGround.transform.position = new Vector3(currentGround.transform.position.x + 30, currentGround.transform.position.y);
-                    else if (currentGround.transform.tag == "Ground2") beforeGround.transform.position = new Vector3(currentGround.transform.position.x + 15, currentGround.transform.position.y);
-                    else beforeGround.transform.position = new Vector3(InitialGround.transform.GetChild(3).transform.position.x + 5, Random.Range(-1.35f, 2.5f), 0);
+                    beforeGround.transform.position = new Vector3(InitialGround.transform.GetChild(3).transform.position.x + 5, Random.Range(-1.35f, 2.5f), 0);
                     beforeGround.transform.rotation = Quaternion.identity;
                 }
 
@@ -75,10 +124,7 @@ public class GroundSpawner : MonoBehaviour
                 if (beforeGround != null)
                 {
                     beforeGround.SetActive(true);
-                    if (currentGround.transform.tag == "Ground") beforeGround.transform.position = new Vector3(currentGround.transform.position.x + 10, currentGround.transform.position.y);
-                    else if (currentGround.transform.tag == "Ground2") beforeGround.transform.position = new Vector3(currentGround.transform.position.x + 30, currentGround.transform.position.y);
-                    else if (currentGround.transform.tag == "Ground2") beforeGround.transform.position = new Vector3(currentGround.transform.position.x + 15, currentGround.transform.position.y);
-                    else beforeGround.transform.position = new Vector3(InitialGround.transform.GetChild(3).transform.position.x + 5, Random.Range(-1.35f, 2.5f), 0);
+                     beforeGround.transform.position = new Vector3(InitialGround.transform.GetChild(3).transform.position.x + 5, Random.Range(-1.35f, 2.5f), 0);
                     beforeGround.transform.rotation = Quaternion.identity;
                 }
                 SpawnTrap(beforeGround, 18);
@@ -92,10 +138,7 @@ public class GroundSpawner : MonoBehaviour
                     if (beforeGround != null)
                     {
                         beforeGround.SetActive(true);
-                        if (currentGround.transform.tag == "Ground") beforeGround.transform.position = new Vector3(currentGround.transform.position.x + 10, currentGround.transform.position.y);
-                        else if (currentGround.transform.tag == "Ground2") beforeGround.transform.position = new Vector3(currentGround.transform.position.x + 30, currentGround.transform.position.y);
-                        else if (currentGround.transform.tag == "Ground2") beforeGround.transform.position = new Vector3(currentGround.transform.position.x + 15, currentGround.transform.position.y);
-                        else beforeGround.transform.position = new Vector3(InitialGround.transform.GetChild(3).transform.position.x + 5, Random.Range(-1.35f, 2.5f), 0);
+                        beforeGround.transform.position = new Vector3(InitialGround.transform.GetChild(3).transform.position.x + 5, Random.Range(-1.35f, 2.5f), 0);
                         beforeGround.transform.rotation = Quaternion.identity;
                     }
                 SpawnTrap(beforeGround, 10);
@@ -103,59 +146,6 @@ public class GroundSpawner : MonoBehaviour
                 SpawnMonster(beforeGround, 10);
             }
             isFirst= false;
-        }
-        else
-        {
-            int randomNum = Random.Range(1, 4);
-            int randomX = Random.Range(3, 5);
-            if (randomNum == 1)
-            {
-              currentGround =  beforeGround = ObjectPooling.SharedInstance.GetPooledObject("Ground");
-                if (beforeGround != null)
-                {
-                    beforeGround.SetActive(true);
-                    if (currentGround.transform.tag == "Ground") beforeGround.transform.position = new Vector3(currentGround.transform.position.x + 10, currentGround.transform.position.y);
-                    else if (currentGround.transform.tag == "Ground2") beforeGround.transform.position = new Vector3(currentGround.transform.position.x + 30, currentGround.transform.position.y);
-                    else if (currentGround.transform.tag == "Ground2") beforeGround.transform.position = new Vector3(currentGround.transform.position.x + 15, currentGround.transform.position.y);
-                    else beforeGround.transform.position = new Vector3(InitialGround.transform.GetChild(3).transform.position.x + 5, Random.Range(-1.35f, 2.5f), 0);
-                    beforeGround.transform.rotation = Quaternion.identity;
-                }
-                SpawnTrap(beforeGround, 14);
-                SpawnItem(beforeGround, 14);
-                SpawnMonster(beforeGround, 14);
-            }
-            if (randomNum == 2)
-            {
-               currentGround = beforeGround = ObjectPooling.SharedInstance.GetPooledObject("Ground2");
-                if (beforeGround != null)
-                {
-                    beforeGround.SetActive(true);
-                    if (currentGround.transform.tag == "Ground") beforeGround.transform.position = new Vector3(currentGround.transform.position.x + 10, currentGround.transform.position.y);
-                    else if (currentGround.transform.tag == "Ground2") beforeGround.transform.position = new Vector3(currentGround.transform.position.x + 30, currentGround.transform.position.y);
-                    else if (currentGround.transform.tag == "Ground2") beforeGround.transform.position = new Vector3(currentGround.transform.position.x + 15, currentGround.transform.position.y);
-                    else beforeGround.transform.position = new Vector3(InitialGround.transform.GetChild(3).transform.position.x + 5, Random.Range(-1.35f, 2.5f), 0);
-                    beforeGround.transform.rotation = Quaternion.identity;
-                }
-                SpawnTrap(beforeGround, 18);
-                SpawnItem(beforeGround, 18);
-                SpawnMonster(beforeGround, 18);
-            }
-            if (randomNum == 3)
-            {
-               currentGround = beforeGround = ObjectPooling.SharedInstance.GetPooledObject("Ground3");
-                if (beforeGround != null)
-                {
-                    beforeGround.SetActive(true);
-                    if (currentGround.transform.tag == "Ground") beforeGround.transform.position = new Vector3(currentGround.transform.position.x + 10, currentGround.transform.position.y);
-                    else if (currentGround.transform.tag == "Ground2") beforeGround.transform.position = new Vector3(currentGround.transform.position.x + 30, currentGround.transform.position.y);
-                    else if (currentGround.transform.tag == "Ground2") beforeGround.transform.position = new Vector3(currentGround.transform.position.x + 15, currentGround.transform.position.y);
-                    else beforeGround.transform.position = new Vector3(InitialGround.transform.GetChild(3).transform.position.x + 5, Random.Range(-1.35f, 2.5f), 0);
-                    beforeGround.transform.rotation = Quaternion.identity;
-                }
-                SpawnTrap(beforeGround, 10);
-                SpawnItem(beforeGround, 10);
-                SpawnMonster(beforeGround, 10);
-            }
         }
         
        
