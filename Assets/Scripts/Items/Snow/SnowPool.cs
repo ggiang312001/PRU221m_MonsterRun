@@ -4,11 +4,32 @@ using UnityEngine;
 
 public class SnowPool : MonoBehaviour
 {
+    private static SnowPool instance = null;
     public GameObject Snow; // The prefab to be pooled.
     public int poolSize = 2; // The number of instances to be created initially.
     public List<GameObject> pool;
     public static GameObject currentObject;
+    public static SnowPool Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = new SnowPool();
+            }
+            return instance;
+        }
+    }
 
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        instance = this;
+    }
     // Start is called before the first frame update
     void Start()
     {

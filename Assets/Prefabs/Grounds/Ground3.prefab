@@ -685,7 +685,7 @@ GameObject:
   - component: {fileID: 4191450666748583759}
   m_Layer: 0
   m_Name: Ground3
-  m_TagString: Ground
+  m_TagString: Ground2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -729,7 +729,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 3.8360872, y: -1.3016922}
+  m_Offset: {x: 3.3273277, y: -1.3016922}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -740,7 +740,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 11.405836, y: 0.706763}
+  m_Size: {x: 11.478516, y: 0.706763}
   m_EdgeRadius: 0
 --- !u!114 &4191450666748583759
 MonoBehaviour:

@@ -5,10 +5,31 @@ using UnityEngine;
 
 public class HeartPool : MonoBehaviour
 {
+    private static HeartPool instance = null;
     public GameObject Heart; // The prefab to be pooled.
     public int poolSize = 2; // The number of instances to be created initially.
     public List<GameObject> pool;
+    public static HeartPool Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = new HeartPool();
+            }
+            return instance;
+        }
+    }
 
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        instance = this;
+    }
     // Start is called before the first frame update
     void Start()
     {

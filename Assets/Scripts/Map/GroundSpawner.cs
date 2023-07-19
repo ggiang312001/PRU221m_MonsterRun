@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.EditorTools;
 using UnityEngine;
 
 public class GroundSpawner : MonoBehaviour
@@ -20,6 +21,7 @@ public class GroundSpawner : MonoBehaviour
     Timer SpawnTime;
     GameObject beforeGround;
     bool isFirst = true;
+    bool isStart = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -45,7 +47,7 @@ public class GroundSpawner : MonoBehaviour
     }
     public void SpawnGround()
     {
-        if(isFirst == true) {
+        if(ContinueGame.isStart == true && isFirst == true) {
             int randomNum = Random.Range(1, 4);
             if (randomNum == 1)
             {
@@ -69,6 +71,33 @@ public class GroundSpawner : MonoBehaviour
                 SpawnMonster(beforeGround, 10);
             }
             isFirst= false;
+            ContinueGame.isStart = false;
+        }
+        else if (ContinueGame.isContinue)
+        {
+            int randomNum = Random.Range(1, 4);
+            if (randomNum == 1)
+            {
+                beforeGround = Instantiate(Ground1, new Vector3(LoadGameSave.LastGround.transform.GetChild(3).transform.position.x + 5, Random.Range(-1.35f, 2.5f), 0), Quaternion.identity);
+                SpawnTrap(beforeGround, 14);
+                SpawnItem(beforeGround, 14);
+                SpawnMonster(beforeGround, 14);
+            }
+            if (randomNum == 2)
+            {
+                beforeGround = Instantiate(Ground2, new Vector3(LoadGameSave.LastGround.transform.GetChild(3).transform.position.x + 5, Random.Range(-1.35f, 2.5f), 0), Quaternion.identity);
+                SpawnTrap(beforeGround, 18);
+                SpawnItem(beforeGround, 18);
+                SpawnMonster(beforeGround, 18);
+            }
+            if (randomNum == 3)
+            {
+                beforeGround = Instantiate(Ground3, new Vector3(LoadGameSave.LastGround.transform.GetChild(3).transform.position.x + 5, Random.Range(-1.35f, 2.5f), 0), Quaternion.identity);
+                SpawnTrap(beforeGround, 10);
+                SpawnItem(beforeGround, 10);
+                SpawnMonster(beforeGround, 10);
+            }
+            ContinueGame.isContinue = false;
         }
         else
         {

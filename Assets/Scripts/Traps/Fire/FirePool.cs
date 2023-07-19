@@ -10,7 +10,7 @@ public class FirePool : MonoBehaviour
     public GameObject Fire; // The prefab to be pooled.
     public int poolSize = 5; // The number of instances to be created initially.
     public List<GameObject> pool;
-    public List<GameObject> listFireActive;
+
     // Start is called before the first frame update
     public static FirePool Instance
     {
@@ -34,7 +34,9 @@ public class FirePool : MonoBehaviour
         instance = this;
     }
     void Start()
+
     {
+    
         pool = new List<GameObject>();
         for (int i = 0; i < poolSize; i++)
         {
@@ -47,6 +49,7 @@ public class FirePool : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         foreach (GameObject obj in pool)
         {
             if (obj.transform.position.x < ScreenUtils.ScreenLeft)
@@ -63,12 +66,13 @@ public class FirePool : MonoBehaviour
             Debug.LogWarning("Object pool is empty!");
             return null;
         }
+      
         foreach (GameObject obj in pool)
         {
             if (obj.active == false)
             {
                 obj.SetActive(true);
-                listFireActive.Add(obj);
+              
                 return obj;
             }
         }

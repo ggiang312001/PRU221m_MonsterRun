@@ -4,13 +4,36 @@ using UnityEngine;
 
 public class FighterPool : MonoBehaviour
 {
+    private static FighterPool instance = null;
     public GameObject Fighter; // The prefab to be pooled.
     public int poolSize = 3; // The number of instances to be created initially.
     public List<GameObject> pool;
 
+    public static FighterPool Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = new FighterPool();
+            }
+            return instance;
+        }
+    }
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        instance = this;
+    }
     // Start is called before the first frame update
     void Start()
     {
+  
         pool = new List<GameObject>();
         for (int i = 0; i < poolSize; i++)
         {
@@ -23,6 +46,7 @@ public class FighterPool : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       
         foreach (GameObject obj in pool)
         {
             if (obj.transform.position.x < ScreenUtils.ScreenLeft)
@@ -44,6 +68,7 @@ public class FighterPool : MonoBehaviour
             if (obj.active == false)
             {
                 obj.SetActive(true);
+          
                 return obj;
             }
         }

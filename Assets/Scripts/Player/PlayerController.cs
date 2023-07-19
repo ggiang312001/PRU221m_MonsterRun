@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
        
-        if (collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.tag.Contains("Ground"))
         {
             if (transform.position.y >= collision.gameObject.transform.GetChild(0).gameObject.transform.position.y)
             {

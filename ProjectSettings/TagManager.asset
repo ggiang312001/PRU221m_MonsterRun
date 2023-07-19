@@ -10,6 +10,13 @@ TagManager:
   - SnowItem
   - HUD
   - HeartItem
+  - Ground1
+  - Ground2
+  - Fighter
+  - Wizard
+  - MineTrap
+  - ThornTrap
+  - FireTrap
   layers:
   - Default
   - TransparentFX

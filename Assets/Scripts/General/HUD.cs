@@ -16,6 +16,7 @@ public class HUD : MonoBehaviour
     const string bouncePrefix = "X ";
     void Start()
     {
+        
         health = 5;
         healthText.text = bouncePrefix + health.ToString();
     }
@@ -54,8 +55,23 @@ public class HUD : MonoBehaviour
         healthText.text = bouncePrefix + health.ToString();
     }
 
+    public void SetHealth(int health1)
+    {
+        health = health1;
+        healthText.text = bouncePrefix + health.ToString();
+    }
     public int GetHealth()
     {
        return health;   
+    }
+
+    public float GetTimer()
+    {
+        return timer;
+    }
+
+    public void SetTimer(float time)
+    {
+        timer = time;
     }
 }

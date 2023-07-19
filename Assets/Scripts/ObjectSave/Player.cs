@@ -6,12 +6,9 @@ using System.Threading.Tasks;
 
 namespace Assets.Scripts.ObjectSave
 {
-    public class Item
+   public class Player
     {
-        public string Type { get; set; }    
-
-        public string Name { get; set; }
-        public float x{ get; set; }
+        public float x { get; set; }
         public float y { get; set; }
     }
 }
