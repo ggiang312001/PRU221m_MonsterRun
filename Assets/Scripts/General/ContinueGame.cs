@@ -30,6 +30,7 @@ public class ContinueGame : MonoBehaviour
     {
 
         isStart = true;
+        Time.timeScale = 1;
         SceneManager.LoadScene("SampleScene");
     }
 
