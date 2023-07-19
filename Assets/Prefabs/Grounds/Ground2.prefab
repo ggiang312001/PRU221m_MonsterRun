@@ -433,7 +433,7 @@ GameObject:
   - component: {fileID: -5113030452347158299}
   m_Layer: 0
   m_Name: Ground2
-  m_TagString: Ground1
+  m_TagString: Ground2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
