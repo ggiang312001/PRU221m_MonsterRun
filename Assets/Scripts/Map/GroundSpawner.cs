@@ -14,6 +14,7 @@ public class GroundSpawner : MonoBehaviour
     public FirePool FirePool;
     public HeartPool HeartPool;
     public SnowPool SnowPool;
+    public ShieldPool ShieldPool;
     public FighterPool FighterPool;
     public WizardPool WizardPool;
     bool hasGround = true;
@@ -229,10 +230,10 @@ public class GroundSpawner : MonoBehaviour
         {
             List<GameObject> listHearts = HeartPool.pool;
             List<GameObject> listSnows = SnowPool.pool;
+            List<GameObject> listShields = ShieldPool.pool;
             int randomChild = Random.Range(1, child);
             Vector3 position = ground.transform.GetChild(randomChild).transform.position;
-            int random = UnityEngine.Random.Range(1, 3);
-
+            int random = UnityEngine.Random.Range(1, 4);
 
             if (random == 1)
             {
@@ -267,6 +268,24 @@ public class GroundSpawner : MonoBehaviour
                     GameObject woodBox = SnowPool.GetObject(); // Lấy trap từ pool
                     woodBox.transform.position = new Vector3(position.x, Random.Range(position.y + 1f, position.y + 3f), 0); // Set vị trí của trap
                     woodBox.SetActive(true); // Hiển thị trap lên màn hình
+                    count = 0;
+                }
+            }
+            if (random == 3)
+            {
+                int count = 0;
+                foreach (GameObject obj in listShields)
+                {
+                    if (obj.active == false)
+                    {
+                        count++;
+                    }
+                }
+                if (count != 0)
+                {
+                    GameObject shield = ShieldPool.GetObject(); // Lấy trap từ pool
+                    shield.transform.position = new Vector3(position.x, Random.Range(position.y + 1f, position.y + 3f), 0); // Set vị trí của trap
+                    shield.SetActive(true); // Hiển thị trap lên màn hình
                     count = 0;
                 }
             }

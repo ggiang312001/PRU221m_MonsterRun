@@ -19,4 +19,11 @@ public class ItemFactory : IItemFactory
         GameObject g = Instantiate(prefab, new Vector3(factoryTransformPosition.x, factoryTransformPosition.y, factoryTransformPosition.z), Quaternion.identity);
         return g;
     }
+    public override GameObject CreateShield()
+    {
+        var factoryTransformPosition = ItemTransform.transform.position;
+        GameObject prefab = Resources.Load<GameObject>("Items/Shield");
+        GameObject g = Instantiate(prefab, new Vector3(factoryTransformPosition.x, factoryTransformPosition.y, factoryTransformPosition.z), Quaternion.identity);
+        return g;
+    }
 }
