@@ -6,10 +6,10 @@ using UnityEngine;
 
 public class GroundSpawner : MonoBehaviour
 {
-   
+
+    [SerializeField] private Transform spawnPoint;
     [SerializeField]
     GameObject InitialGround;
-    public GameObject Ground1, Ground2, Ground3;
     public ThornPool ThornPool;
     public MinePool MinePool;
     public FirePool FirePool;
@@ -21,13 +21,16 @@ public class GroundSpawner : MonoBehaviour
     Timer SpawnTime;
     GameObject beforeGround;
     bool isFirst = true;
-    bool isStart = false;
+    private GameObject currentGround;
+
     // Start is called before the first frame update
     void Start()
     {
         SpawnTime = gameObject.AddComponent<Timer>();
-        SpawnTime.Duration = 2f;
-        SpawnTime.Run();
+        StartCoroutine(Ground1());
+        //SpawnTime.Duration = 2f;
+        //SpawnTime.Run();
+
     }
 
     // Update is called once per frame
@@ -37,97 +40,71 @@ public class GroundSpawner : MonoBehaviour
         //{
         if (SpawnTime.Finished)
         {
-            SpawnGround();
+            //SpawnGround();
             SpawnTime.Duration = 2f;
             SpawnTime.Run();
         }
-            
+
         //    hasGround = true;
         //}
     }
-    public void SpawnGround()
+
+    private IEnumerator Ground1()
     {
-        if(ContinueGame.isStart == true && isFirst == true) {
-            int randomNum = Random.Range(1, 4);
-            if (randomNum == 1)
-            {
-               beforeGround = Instantiate(Ground1, new Vector3(InitialGround.transform.GetChild(3).transform.position.x + 5, Random.Range(-1.35f, 2.5f), 0), Quaternion.identity);
-               SpawnTrap(beforeGround, 14);
-               SpawnItem(beforeGround, 14);
-                SpawnMonster(beforeGround, 14);
-            }
-            if (randomNum == 2)
-            {
-                beforeGround = Instantiate(Ground2, new Vector3(InitialGround.transform.GetChild(3).transform.position.x + 5, Random.Range(-1.35f, 2.5f), 0), Quaternion.identity);
-                SpawnTrap(beforeGround, 18);
-                SpawnItem(beforeGround, 18);
-                SpawnMonster(beforeGround, 18);
-            }
-            if (randomNum == 3)
-            {
-                beforeGround = Instantiate(Ground3, new Vector3(InitialGround.transform.GetChild(3).transform.position.x + 5, Random.Range(-1.35f, 2.5f), 0), Quaternion.identity);
-                SpawnTrap(beforeGround, 10);
-                SpawnItem(beforeGround, 10);
-                SpawnMonster(beforeGround, 10);
-            }
-            isFirst= false;
-            ContinueGame.isStart = false;
-        }
-        else if (ContinueGame.isContinue)
+        yield return new WaitForSeconds(5f);
+        StartCoroutine(SpawnGround2());
+        beforeGround = ObjectPooling.SharedInstance.GetPooledObject("Ground");
+        if (beforeGround != null)
         {
-            int randomNum = Random.Range(1, 4);
-            if (randomNum == 1)
-            {
-                beforeGround = Instantiate(Ground1, new Vector3(LoadGameSave.LastGround.transform.GetChild(3).transform.position.x + 5, Random.Range(-1.35f, 2.5f), 0), Quaternion.identity);
-                SpawnTrap(beforeGround, 14);
-                SpawnItem(beforeGround, 14);
-                SpawnMonster(beforeGround, 14);
-            }
-            if (randomNum == 2)
-            {
-                beforeGround = Instantiate(Ground2, new Vector3(LoadGameSave.LastGround.transform.GetChild(3).transform.position.x + 5, Random.Range(-1.35f, 2.5f), 0), Quaternion.identity);
-                SpawnTrap(beforeGround, 18);
-                SpawnItem(beforeGround, 18);
-                SpawnMonster(beforeGround, 18);
-            }
-            if (randomNum == 3)
-            {
-                beforeGround = Instantiate(Ground3, new Vector3(LoadGameSave.LastGround.transform.GetChild(3).transform.position.x + 5, Random.Range(-1.35f, 2.5f), 0), Quaternion.identity);
-                SpawnTrap(beforeGround, 10);
-                SpawnItem(beforeGround, 10);
-                SpawnMonster(beforeGround, 10);
-            }
-            ContinueGame.isContinue = false;
+            var offset = Random.Range(-1, 2);
+            beforeGround.SetActive(true);
+            beforeGround.transform.position = new Vector3(spawnPoint.position.x, spawnPoint.position.y + offset);
+            beforeGround.transform.rotation = Quaternion.identity;
         }
-        else
-        {
-            int randomNum = Random.Range(1, 4);
-            int randomX = Random.Range(3, 5);
-            if (randomNum == 1)
-            {
-                beforeGround = Instantiate(Ground1, new Vector3(beforeGround.transform.GetChild(3).transform.position.x + 5, Random.Range(-1.35f, 2.5f), 0), Quaternion.identity);
-                SpawnTrap(beforeGround, 14);
-                SpawnItem(beforeGround, 14);
-                SpawnMonster(beforeGround, 14);
-            }
-            if (randomNum == 2)
-            {
-                beforeGround = Instantiate(Ground2, new Vector3(beforeGround.transform.GetChild(3).transform.position.x + 5, Random.Range(-1.35f, 2.5f), 0), Quaternion.identity);
-                SpawnTrap(beforeGround, 18);
-                SpawnItem(beforeGround, 18);
-                SpawnMonster(beforeGround, 18);
-            }
-            if (randomNum == 3)
-            {
-                beforeGround = Instantiate(Ground3, new Vector3(beforeGround.transform.GetChild(3).transform.position.x + 5, Random.Range(-1.35f, 2.5f), 0), Quaternion.identity);
-                SpawnTrap(beforeGround, 10);
-                SpawnItem(beforeGround, 10);
-                SpawnMonster(beforeGround, 10);
-            }
-        }
-        
-       
+        SpawnTrap(beforeGround, 15);
+        SpawnItem(beforeGround, 15);
+        SpawnMonster(beforeGround, 15);
     }
+
+
+    private IEnumerator SpawnGround2()
+    {
+        yield return new WaitForSeconds(6f);
+        StartCoroutine(SpawnGround3());
+        beforeGround = ObjectPooling.SharedInstance.GetPooledObject("Ground2");
+        if (beforeGround != null)
+        {
+            var offset = Random.Range(-1, 2);
+            beforeGround.SetActive(true);
+            beforeGround.transform.position = new Vector3(spawnPoint.position.x, spawnPoint.position.y + offset);
+            beforeGround.transform.rotation = Quaternion.identity;
+        }
+        SpawnTrap(beforeGround, 18);
+        SpawnItem(beforeGround, 18);
+        SpawnMonster(beforeGround, 18);
+
+    }
+
+
+    private IEnumerator SpawnGround3()
+    {
+        yield return new WaitForSeconds(7f);
+        beforeGround = ObjectPooling.SharedInstance.GetPooledObject("Ground3");
+        StartCoroutine(Ground1());
+        if (beforeGround != null)
+        {
+            var offset = Random.Range(-1, 2);
+            beforeGround.SetActive(true);
+            beforeGround.transform.position = new Vector3(spawnPoint.position.x, spawnPoint.position.y + offset);
+            beforeGround.transform.rotation = Quaternion.identity;
+        }
+        SpawnTrap(beforeGround, 10);
+        SpawnItem(beforeGround, 10);
+        SpawnMonster(beforeGround, 10);
+    }
+
+
+
 
     private void SpawnMonster(GameObject ground, int child)
     {
@@ -137,7 +114,7 @@ public class GroundSpawner : MonoBehaviour
             List<GameObject> listFighters = FighterPool.pool;
             List<GameObject> listWizard = WizardPool.pool;
             //int randomChild = Random.Range(1, child);
-            int randomChild = child-1;
+            int randomChild = child - 1;
             Vector3 position = ground.transform.GetChild(randomChild).transform.position;
             int random = UnityEngine.Random.Range(1, 3);
             if (random == 1)
@@ -183,7 +160,7 @@ public class GroundSpawner : MonoBehaviour
     private void SpawnItem(GameObject ground, int child)
     {
         int appear = Random.Range(1, 2);
-        if(appear == 1)
+        if (appear == 1)
         {
             List<GameObject> listHearts = HeartPool.pool;
             List<GameObject> listSnows = SnowPool.pool;
