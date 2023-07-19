@@ -25,8 +25,8 @@ public class SaveGame : MonoBehaviour
     {
         SaveHealthAndTimeAndSpeed();
         GameObject[] ground1 = GameObject.FindGameObjectsWithTag("Ground");
-        GameObject[] ground2 = GameObject.FindGameObjectsWithTag("Ground1");
-        GameObject[] ground3 = GameObject.FindGameObjectsWithTag("Ground2");
+        GameObject[] ground2 = GameObject.FindGameObjectsWithTag("Ground2");
+        GameObject[] ground3 = GameObject.FindGameObjectsWithTag("Ground3");
         GameObject[] listFire = GameObject.FindGameObjectsWithTag("FireTrap");
         GameObject[] listMine = GameObject.FindGameObjectsWithTag("MineTrap");
         GameObject[] listThorn = GameObject.FindGameObjectsWithTag("ThornTrap");

@@ -50,8 +50,8 @@ public class GroundSpawner : MonoBehaviour
 
     public void SpawnGround()
     {
-        //ContinueGame.isStart == true
-        if (isFirst == true)
+        
+        if (ContinueGame.isStart && isFirst)
         {
             int randomNum = Random.Range(1, 4);
             if (randomNum == 1)

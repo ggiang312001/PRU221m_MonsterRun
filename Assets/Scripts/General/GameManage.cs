@@ -42,7 +42,7 @@ public class GameManage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(speed);
+
         if (isSnow == true)
         {
             time += Time.deltaTime;
