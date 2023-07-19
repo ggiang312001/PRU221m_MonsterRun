@@ -18,6 +18,7 @@ TagManager:
   - ThornTrap
   - FireTrap
   - Ground3
+  - GroundSpawner
   layers:
   - Default
   - TransparentFX
