@@ -313,7 +313,7 @@ public class GroundSpawner : MonoBehaviour
             randomNum = Random.Range(1, 3);
         }
         else{
-            randomNum = Random.Range(1, 4);
+            randomNum = Random.Range(2, 4);
         }
 
         // sinh bẫy
