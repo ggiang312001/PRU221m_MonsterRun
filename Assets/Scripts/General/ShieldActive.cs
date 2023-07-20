@@ -39,6 +39,7 @@ public class ShieldActive : MonoBehaviour
         if(ShieldCount <= 0)
         {
             gameObject.SetActive(false);    
+            ShieldCount = 5;
         }
     }
 

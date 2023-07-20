@@ -14,15 +14,57 @@ public class ObjectPoolItem
 public class ObjectPooling : MonoBehaviour
 {
     public List<ObjectPoolItem> itemsToPool;
-    public static ObjectPooling SharedInstance;
+    public static ObjectPooling instance;
     public List<GameObject> pooledObjects;
+    public List<GameObject> listGround;
+    public List<GameObject> listGround2;
+    public List<GameObject> listGround3;
+    public static ObjectPooling Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = new ObjectPooling();
+            }
+            return instance;
+        }
+    }
+
     private void Awake()
     {
-        SharedInstance = this;
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        instance = this;
     }
     void Start()
     {
         CreatePooling();
+        foreach (var item in pooledObjects)
+        {
+            if (item.tag.Equals("Ground"))
+            {
+                listGround.Add(item);
+            }
+            if (item.tag.Equals("Ground2"))
+            {
+                listGround2.Add(item);
+            }
+            if (item.tag.Equals("Ground3"))
+            {
+                listGround3.Add(item);
+            }
+
+        }
+
+    }
+
+    void Update()
+    {
+     
     }
 
     private void CreatePooling()
@@ -42,27 +84,50 @@ public class ObjectPooling : MonoBehaviour
 
     public GameObject GetPooledObject(string tag)
     {
-        for (int i = 0; i < pooledObjects.Count; i++)
+        if (tag.Equals("Ground"))
         {
-            if (!pooledObjects[i].activeInHierarchy && pooledObjects[i].tag == tag)
+            for (int i = 0; i < listGround.Count; i++)
             {
-                return pooledObjects[i];
-            }
-        }
-        foreach (ObjectPoolItem item in itemsToPool)
-        {
-            if (item.objectToPool.tag == tag)
-            {
-                if (item.shouldExpand)
+                if (!listGround[i].activeInHierarchy)
                 {
-                    GameObject obj = (GameObject)Instantiate(item.objectToPool);
-                    obj.transform.parent = transform;
-                    obj.SetActive(false);
-                    pooledObjects.Add(obj);
-                    return obj;
+                    return listGround[i];
                 }
             }
         }
+        if (tag.Equals("Ground2"))
+        {
+            for (int i = 0; i < listGround2.Count; i++)
+            {
+                if (!listGround2[i].activeInHierarchy)
+                {
+                    return listGround2[i];
+                }
+            }
+        }
+        if (tag.Equals("Ground3"))
+        {
+            for (int i = 0; i < listGround3.Count; i++)
+            {
+                if (!listGround3[i].activeInHierarchy)
+                {
+                    return listGround3[i];
+                }
+            }
+        }
+        //foreach (ObjectPoolItem item in itemsToPool)
+        //{
+        //    if (item.objectToPool.tag == tag)
+        //    {
+        //        if (item.shouldExpand)
+        //        {
+        //            GameObject obj = (GameObject)Instantiate(item.objectToPool);
+        //            obj.transform.parent = transform;
+        //            obj.SetActive(false);
+        //            pooledObjects.Add(obj);
+        //            return obj;
+        //        }
+        //    }
+        //}
         return null;
     }
 }

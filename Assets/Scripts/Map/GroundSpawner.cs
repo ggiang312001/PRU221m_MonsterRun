@@ -17,6 +17,7 @@ public class GroundSpawner : MonoBehaviour
     public ShieldPool ShieldPool;
     public FighterPool FighterPool;
     public WizardPool WizardPool;
+    public ObjectPooling GroundPool;
     bool hasGround = true;
     Timer SpawnTime;
     GameObject beforeGround;
@@ -51,13 +52,39 @@ public class GroundSpawner : MonoBehaviour
 
     public void SpawnGround()
     {
-        
+        List<GameObject> ground = ObjectPooling.Instance.listGround;
+        List<GameObject> ground2 = ObjectPooling.Instance.listGround2;
+        List<GameObject> ground3 = ObjectPooling.Instance.listGround3;
+        int count1 = 0; int count2 = 0;
+        int count3 = 0;
+        foreach (GameObject item in ground)
+        {
+            if (item.active == false)
+            {
+                count1++;
+            }
+        }
+        foreach (GameObject item in ground2)
+        {
+            if (item.active == false)
+            {
+                count2++;
+            }
+        }
+        foreach (GameObject item in ground3)
+        {
+            if (item.active == false)
+            {
+                count3++;
+            }
+        }
+
         if (ContinueGame.isStart && isFirst)
         {
             int randomNum = Random.Range(1, 4);
-            if (randomNum == 1)
+            if (randomNum == 1 && count1 != 0)
             {
-                currentGround = ObjectPooling.SharedInstance.GetPooledObject("Ground");
+                currentGround = ObjectPooling.Instance.GetPooledObject("Ground");
                 currentGround.SetActive(true);
                 currentGround.transform.position = new Vector3(InitialGround.transform.GetChild(3).transform.position.x + Random.Range(5, 5.5f), Random.Range(-1.35f, 2.5f), 0);
                 currentGround.transform.rotation = Quaternion.identity;
@@ -66,9 +93,9 @@ public class GroundSpawner : MonoBehaviour
                 SpawnItem(currentGround, 14);
                 SpawnMonster(currentGround, 14);
             }
-            if (randomNum == 2)
+            if (randomNum == 2 && count2 != 0)
             {
-                currentGround = ObjectPooling.SharedInstance.GetPooledObject("Ground2");
+                currentGround = ObjectPooling.Instance.GetPooledObject("Ground2");
                 currentGround.SetActive(true);
                 currentGround.transform.position = new Vector3(InitialGround.transform.GetChild(3).transform.position.x + Random.Range(5, 5.5f), Random.Range(-1.35f, 2.5f), 0);
                 currentGround.transform.rotation = Quaternion.identity;
@@ -77,9 +104,9 @@ public class GroundSpawner : MonoBehaviour
                 SpawnItem(currentGround, 18);
                 SpawnMonster(currentGround, 18);
             }
-            if (randomNum == 3)
+            if (randomNum == 3 && count3 != 0)
             {
-                currentGround = ObjectPooling.SharedInstance.GetPooledObject("Ground3");
+                currentGround = ObjectPooling.Instance.GetPooledObject("Ground3");
                 currentGround.SetActive(true);
                 currentGround.transform.position = new Vector3(InitialGround.transform.GetChild(3).transform.position.x + Random.Range(5, 5.5f), Random.Range(-1.35f, 2.5f), 0);
                 currentGround.transform.rotation = Quaternion.identity;
@@ -94,9 +121,9 @@ public class GroundSpawner : MonoBehaviour
         else if (ContinueGame.isContinue)
         {
             int randomNum = Random.Range(1, 4);
-            if (randomNum == 1)
+            if (randomNum == 1 && count1 != 0)
             {
-                currentGround = ObjectPooling.SharedInstance.GetPooledObject("Ground");
+                currentGround = ObjectPooling.Instance.GetPooledObject("Ground");
                 currentGround.SetActive(true);
                 currentGround.transform.position = new Vector3(LoadGameSave.LastGround.transform.GetChild(3).transform.position.x + Random.Range(5, 5.5f), Random.Range(-1.35f, 2.5f), 0);
                 currentGround.transform.rotation = Quaternion.identity;
@@ -105,9 +132,9 @@ public class GroundSpawner : MonoBehaviour
                 SpawnItem(currentGround, 14);
                 SpawnMonster(currentGround, 14);
             }
-            if (randomNum == 2)
+            if (randomNum == 2 && count2 != 0)
             {
-                currentGround = ObjectPooling.SharedInstance.GetPooledObject("Ground2");
+                currentGround = ObjectPooling.Instance.GetPooledObject("Ground2");
                 currentGround.SetActive(true);
                 currentGround.transform.position = new Vector3(LoadGameSave.LastGround.transform.GetChild(3).transform.position.x + Random.Range(5, 5.5f), Random.Range(-1.35f, 2.5f), 0);
                 currentGround.transform.rotation = Quaternion.identity;
@@ -116,9 +143,9 @@ public class GroundSpawner : MonoBehaviour
                 SpawnItem(currentGround, 18);
                 SpawnMonster(currentGround, 18);
             }
-            if (randomNum == 3)
+            if (randomNum == 3 && count3 != 0)
             {
-                currentGround = ObjectPooling.SharedInstance.GetPooledObject("Ground3");
+                currentGround = ObjectPooling.Instance.GetPooledObject("Ground3");
                 currentGround.SetActive(true);
                 currentGround.transform.position = new Vector3(LoadGameSave.LastGround.transform.GetChild(3).transform.position.x + Random.Range(5, 5.5f), Random.Range(-1.35f, 2.5f), 0);
                 currentGround.transform.rotation = Quaternion.identity;
@@ -133,9 +160,9 @@ public class GroundSpawner : MonoBehaviour
         {
             int randomNum = Random.Range(1, 4);
             int randomX = Random.Range(3, 5);
-            if (randomNum == 1)
+            if (randomNum == 1 && count1 != 0)
             {
-                currentGround = ObjectPooling.SharedInstance.GetPooledObject("Ground");
+                currentGround = ObjectPooling.Instance.GetPooledObject("Ground");
 
                 currentGround.SetActive(true);
                 currentGround.transform.position = new Vector3(beforeGround.transform.GetChild(3).transform.position.x + Random.Range(5, 5.5f), Random.Range(-1.35f, 2.5f), 0);
@@ -145,9 +172,9 @@ public class GroundSpawner : MonoBehaviour
                 SpawnItem(currentGround, 14);
                 SpawnMonster(currentGround, 14);
             }
-            if (randomNum == 2)
+            if (randomNum == 2 && count2 != 0)
             {
-                currentGround = ObjectPooling.SharedInstance.GetPooledObject("Ground2");
+                currentGround = ObjectPooling.Instance.GetPooledObject("Ground2");
                 currentGround.SetActive(true);
                 currentGround.transform.position = new Vector3(beforeGround.transform.GetChild(3).transform.position.x + Random.Range(5, 5.5f), Random.Range(-1.35f, 2.5f), 0);
                 currentGround.transform.rotation = Quaternion.identity;
@@ -156,9 +183,9 @@ public class GroundSpawner : MonoBehaviour
                 SpawnItem(currentGround, 18);
                 SpawnMonster(currentGround, 18);
             }
-            if (randomNum == 3)
+            if (randomNum == 3 && count3 != 0)
             {
-                currentGround = ObjectPooling.SharedInstance.GetPooledObject("Ground3");
+                currentGround = ObjectPooling.Instance.GetPooledObject("Ground3");
                 currentGround.SetActive(true);
                 currentGround.transform.position = new Vector3(beforeGround.transform.GetChild(3).transform.position.x + Random.Range(5, 5.5f), Random.Range(-1.35f, 2.5f), 0);
                 currentGround.transform.rotation = Quaternion.identity;
