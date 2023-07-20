@@ -12,6 +12,12 @@ public abstract class TrapController : MonoBehaviour
             InteractWithPlayer();
             ReduceHealth();
         }
+
+        if (collision.gameObject.CompareTag("Shield"))
+        {
+            ShieldActive.Instance.ShieldCount -= 1;
+            gameObject.SetActive(false);
+        }
     }
 
     protected abstract void InteractWithPlayer();

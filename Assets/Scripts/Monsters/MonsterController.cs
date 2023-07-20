@@ -31,5 +31,10 @@ public class MonsterController : MonoBehaviour
             }
 
         }
+        if (collision.gameObject.CompareTag("Shield"))
+        {
+            ShieldActive.Instance.ShieldCount -= 1;
+            gameObject.SetActive(false);
+        }
     }
 }

@@ -19,6 +19,7 @@ TagManager:
   - FireTrap
   - Ground3
   - GroundSpawner
+  - Shield
   layers:
   - Default
   - TransparentFX

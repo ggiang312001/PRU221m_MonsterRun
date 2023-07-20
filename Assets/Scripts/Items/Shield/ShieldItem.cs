@@ -18,11 +18,7 @@ public class ShieldItem : ItemController
 
     protected override void InteractWithPlayer()
     {
-        //HUD hud = GameObject.FindGameObjectWithTag("HUD").GetComponent<HUD>();
-        //gameObject.SetActive(false);
-        //if (hud.GetHealth() < 5)
-        //{
-        //    hud.IncreaseHealth();
-        //}
+        GameObject.FindGameObjectWithTag("Player").transform.GetChild(2).gameObject.SetActive(true);
+        gameObject.SetActive(false);
     }
 }
