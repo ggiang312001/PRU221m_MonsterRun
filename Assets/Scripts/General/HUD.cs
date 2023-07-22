@@ -51,12 +51,6 @@ public class HUD : MonoBehaviour
         pauseMenu.SetActive(false);
     }
 
-    public void RestartGame()
-    {
-        isStart = true;
-        Time.timeScale = 1;
-        SceneManager.LoadScene("SampleScene");
-    }
 
     // Update is called once per frame
     void Update()
@@ -79,16 +73,12 @@ public class HUD : MonoBehaviour
     }
     public void ReduceHealth()
     {
-        if (0 < health )
+        if (health > 0 )
         {
             health -= 1;
             healthText.text = bouncePrefix + health.ToString();
         }
-        else
-        {
-            GameOver();
-            healthText.text = bouncePrefix + health.ToString();
-        }
+
     }
 
 
