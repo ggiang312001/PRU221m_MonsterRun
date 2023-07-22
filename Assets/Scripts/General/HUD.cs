@@ -18,11 +18,11 @@ public class HUD : MonoBehaviour
     private float timer = 0.0f;
     
     int health;
+    const string bouncePrefix = "X ";
     private void OnEnable()
     {
         btnHome.onClick.AddListener(Replay);
     }
-    const string bouncePrefix = "X ";
     void Start()
     {
         
@@ -69,6 +69,7 @@ public class HUD : MonoBehaviour
     public void Dead()
     {
         health = 0;
+        GameOver();
         healthText.text = bouncePrefix + health.ToString();
     }
 
