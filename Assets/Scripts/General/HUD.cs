@@ -2,9 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class HUD : MonoBehaviour
 {
+    [SerializeField] private GameObject gameOver;
+    [SerializeField] private Text txtTinme;
+    [SerializeField] private Button btnHome;
     // Start is called before the first frame update
     [SerializeField]
     TextMeshProUGUI healthText;
@@ -13,6 +18,10 @@ public class HUD : MonoBehaviour
     private float timer = 0.0f;
     
     int health;
+    private void OnEnable()
+    {
+        btnHome.onClick.AddListener(Replay);
+    }
     const string bouncePrefix = "X ";
     void Start()
     {
@@ -21,11 +30,23 @@ public class HUD : MonoBehaviour
         healthText.text = bouncePrefix + health.ToString();
     }
 
+    public void Replay()
+    {
+        SceneManager.LoadScene(1);
+        Time.timeScale = 1f;
+    }
+
     // Update is called once per frame
     void Update()
     {
         timer+= Time.deltaTime;
         DisplayTime();
+    }
+
+    public void GameOver()
+    {
+        txtTinme.text = timeText.text;
+        gameOver.SetActive(true);
     }
 
     public void DisplayTime()
@@ -36,12 +57,14 @@ public class HUD : MonoBehaviour
     }
     public void ReduceHealth()
     {
-        if (health > 0)
+        if (0 < health)
         {
             health -= 1;
             healthText.text = bouncePrefix + health.ToString();
         }
+        else if (health < 1) GameOver();
     }
+
 
     public void Dead()
     {
