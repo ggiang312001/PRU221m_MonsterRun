@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -17,7 +18,8 @@ public class HUD : MonoBehaviour
     [SerializeField]
     TextMeshProUGUI timeText;
     private float timer = 0.0f;
-    
+    public static bool isStart = false;
+
     int health;
     const string bouncePrefix = "X ";
     private void OnEnable()
@@ -49,6 +51,13 @@ public class HUD : MonoBehaviour
         pauseMenu.SetActive(false);
     }
 
+    public void RestartGame()
+    {
+        isStart = true;
+        Time.timeScale = 1;
+        SceneManager.LoadScene("SampleScene");
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -70,12 +79,16 @@ public class HUD : MonoBehaviour
     }
     public void ReduceHealth()
     {
-        if (0 < health)
+        if (0 < health )
         {
             health -= 1;
             healthText.text = bouncePrefix + health.ToString();
         }
-        else if (health < 1) GameOver();
+        else
+        {
+            GameOver();
+            healthText.text = bouncePrefix + health.ToString();
+        }
     }
 
 

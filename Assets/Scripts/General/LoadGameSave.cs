@@ -30,6 +30,7 @@ public class LoadGameSave : MonoBehaviour
     {
         if (ContinueGame.isContinue == true && ! isLoadFinish)
         {
+            Time.timeScale = 1;
             HUD hud = GameObject.FindGameObjectWithTag("HUD").GetComponent<HUD>();
             hud.SetHealth(PlayerPrefs.GetInt("Health", 0));
             hud.SetTimer(PlayerPrefs.GetFloat("Time", 0));
