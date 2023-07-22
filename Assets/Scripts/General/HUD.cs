@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class HUD : MonoBehaviour
 {
     [SerializeField] private GameObject gameOver;
+    [SerializeField] private GameObject pauseMenu;
     [SerializeField] private Text txtTinme;
     [SerializeField] private Button btnHome;
     // Start is called before the first frame update
@@ -34,6 +35,18 @@ public class HUD : MonoBehaviour
     {
         SceneManager.LoadScene(1);
         Time.timeScale = 1f;
+    }
+   
+    public void PauseGame()
+    {
+        Time.timeScale = 0;
+        pauseMenu.SetActive(true);
+    }
+
+    public void ResumeGame()
+    {
+        Time.timeScale = 1;
+        pauseMenu.SetActive(false);
     }
 
     // Update is called once per frame
