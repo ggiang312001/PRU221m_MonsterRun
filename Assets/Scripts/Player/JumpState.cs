@@ -5,6 +5,7 @@ using UnityEngine.U2D.IK;
 
 public class JumpSate : PlayerState
 {
+
     public JumpSate(PlayerController player) : base(player)
     {
     }
