@@ -24,7 +24,14 @@ public class LoadGameSave : MonoBehaviour
     {
         
     }
-
+    private static string GetFilePath(string FolderName, string FileName = "")
+    {
+        string filePath;
+        filePath = Path.Combine(Application.persistentDataPath, "data", FolderName);
+        if (FileName != "")
+            filePath = Path.Combine(filePath, FileName + ".json");
+        return filePath;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -37,9 +44,15 @@ public class LoadGameSave : MonoBehaviour
             GameManage.Instance.speed = PlayerPrefs.GetFloat("Speed", 0);
             GameObject StartGround = GameObject.FindGameObjectWithTag("Ground");
             StartGround.SetActive(false);
-            string path = Application.dataPath;
-            string jsonFilePath = $"{path}/Scripts/data/data.json";
-            string json = File.ReadAllText(jsonFilePath);
+
+            string filePath = "";
+            filePath = GetFilePath("data", "data");
+            if (!Directory.Exists(Path.GetDirectoryName(filePath)))
+            {
+                Directory.CreateDirectory(Path.GetDirectoryName(filePath));
+            }
+        
+            string json = File.ReadAllText(filePath);
             var objs = JsonConvert.DeserializeObject<List<Item>>(json);
             float max = 0;
             foreach (var item in objs)
@@ -121,8 +134,14 @@ public class LoadGameSave : MonoBehaviour
                         }
                     }
                 }
-                string jsonFilePath1 = $"{path}/Scripts/data/player.json";
-                string json1 = File.ReadAllText(jsonFilePath1);
+                string playerFilePath = "";
+                playerFilePath = GetFilePath("data", "player");
+                if (!Directory.Exists(Path.GetDirectoryName(playerFilePath)))
+                {
+                    Directory.CreateDirectory(Path.GetDirectoryName(playerFilePath));
+                }
+
+                string json1 = File.ReadAllText(playerFilePath);
                 var player = JsonConvert.DeserializeObject<Player>(json1);
                 GameObject playerLoad = GameObject.FindGameObjectWithTag("Player");
                 playerLoad.transform.position = new Vector3(player.x,player.y);

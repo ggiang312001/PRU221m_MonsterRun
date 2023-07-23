@@ -81,9 +81,7 @@ public class SaveGame : MonoBehaviour
         {
             items.Add(new Item { Type = "ground", Name = "shortground", x = item.transform.position.x, y = item.transform.position.y });
         }
-        //string filePath = Path.Combine(Application.persistentDataPath, "data.json");
-
-        //string path = Application.dataPath + "/Scripts/data/data.json";
+  
         string filePath = "";
         filePath = GetFilePath("data", "data");
         if (!Directory.Exists(Path.GetDirectoryName(filePath)))
@@ -91,13 +89,19 @@ public class SaveGame : MonoBehaviour
             Directory.CreateDirectory(Path.GetDirectoryName(filePath));
         }
         var json = JsonConvert.SerializeObject(items, Formatting.Indented);
-
         File.WriteAllText(filePath, json);
 
-        //GameObject player = GameObject.FindGameObjectWithTag("Player");
-        //Player playerSave = new Player { x = player.transform.position.x, y = player.transform.position.y };
-        //var json1 = JsonConvert.SerializeObject(playerSave, Formatting.Indented);
+        string playerFilePath = "";
+        playerFilePath = GetFilePath("data", "player");
+        if (!Directory.Exists(Path.GetDirectoryName(playerFilePath)))
+        {
+            Directory.CreateDirectory(Path.GetDirectoryName(playerFilePath));
+        }
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        Player playerSave = new Player { x = player.transform.position.x, y = player.transform.position.y };
+        var json1 = JsonConvert.SerializeObject(playerSave, Formatting.Indented);
         //File.WriteAllText($"{path}/Scripts/data/player.json", json1);
+        File.WriteAllText(playerFilePath, json1);
         SceneManager.LoadScene("HomeScene");
     }
 
