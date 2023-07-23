@@ -34,5 +34,12 @@ public class ContinueGame : MonoBehaviour
         SceneManager.LoadScene("SampleScene");
     }
 
+    public void RestartGame()
+    {
+
+        isStart = true;
+        Time.timeScale = 1;
+        SceneManager.LoadScene("SampleScene");
+    }
 
 }

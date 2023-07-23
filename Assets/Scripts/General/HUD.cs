@@ -38,7 +38,13 @@ public class HUD : MonoBehaviour
         SceneManager.LoadScene(1);
         Time.timeScale = 1f;
     }
-   
+
+    public void Restart()
+    {
+        SceneManager.LoadScene("SampleScene");
+        Time.timeScale = 1f;
+    }
+
     public void PauseGame()
     {
         Time.timeScale = 0;
