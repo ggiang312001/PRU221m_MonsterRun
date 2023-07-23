@@ -21,6 +21,7 @@ TagManager:
   - GroundSpawner
   - Shield
   - Bullet
+  - audio
   layers:
   - Default
   - TransparentFX

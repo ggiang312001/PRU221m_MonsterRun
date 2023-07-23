@@ -1,26 +1,32 @@
 [
   {
     "Type": "trap",
-    "Name": "mine",
-    "x": 4.91507,
-    "y": -1.500697
+    "Name": "fire",
+    "x": 16.2909927,
+    "y": -0.411781
+  },
+  {
+    "Type": "trap",
+    "Name": "fire",
+    "x": 9.86099148,
+    "y": -0.412780941
   },
   {
     "Type": "monter",
-    "Name": "fighter",
-    "x": 8.576998,
-    "y": -1.30069709
+    "Name": "wizard",
+    "x": 14.9459953,
+    "y": -0.561781
   },
   {
     "Type": "ground",
     "Name": "mediumground",
-    "x": -16.3512363,
+    "x": -14.2606163,
     "y": -1.68
   },
   {
     "Type": "ground",
-    "Name": "shortground",
-    "x": 1.66506934,
-    "y": -0.7706969
+    "Name": "mediumground",
+    "x": 3.6909945,
+    "y": -0.07278103
   }
 ]

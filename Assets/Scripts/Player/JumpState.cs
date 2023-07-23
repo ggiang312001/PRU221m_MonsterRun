@@ -17,6 +17,9 @@ public class JumpSate : PlayerState
         player.anm.SetBool("isRun", false);
         player.anm.SetBool("isJump", true);
         player.rgd2d.velocity = Vector3.up * 7f;
+        GameObject audio = GameObject.FindGameObjectWithTag("audio");
+        Audio audio_manager = audio.GetComponent<Audio>();
+        audio_manager.PlayJump();
     }
 
     public override void UpdateState()
