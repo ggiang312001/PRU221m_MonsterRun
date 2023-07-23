@@ -33,6 +33,9 @@ public class BulletController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            GameObject audio = GameObject.FindGameObjectWithTag("audio");
+            Audio audio_manager = audio.GetComponent<Audio>();
+            audio_manager.PlayCollider();
             hud.ReduceHealth();
             transform.gameObject.SetActive(false);
             List<GameObject> listFighters = WizardExplosionPool.pool;

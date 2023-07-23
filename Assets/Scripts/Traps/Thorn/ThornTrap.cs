@@ -6,7 +6,9 @@ public class ThornTrap : TrapController
 {
     protected override void InteractWithPlayer()
     {
-      
+        GameObject audio = GameObject.FindGameObjectWithTag("audio");
+        Audio audio_manager = audio.GetComponent<Audio>();
+        audio_manager.PlayCollider();
     }
 
     // Start is called before the first frame update

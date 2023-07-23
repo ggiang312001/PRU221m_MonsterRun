@@ -6,7 +6,7 @@ public class ShieldPool : MonoBehaviour
 {
     private static ShieldPool instance = null;
     public GameObject Shield; // The prefab to be pooled.
-    public int poolSize = 2; // The number of instances to be created initially.
+    public int poolSize = 20; // The number of instances to be created initially.
     public List<GameObject> pool;
     public static ShieldPool Instance
     {

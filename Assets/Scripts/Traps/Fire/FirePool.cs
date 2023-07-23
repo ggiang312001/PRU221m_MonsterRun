@@ -8,7 +8,7 @@ public class FirePool : MonoBehaviour
 {
     private static FirePool instance = null;
     public GameObject Fire; // The prefab to be pooled.
-    public int poolSize = 5; // The number of instances to be created initially.
+    public int poolSize = 50; // The number of instances to be created initially.
     public List<GameObject> pool;
 
     // Start is called before the first frame update

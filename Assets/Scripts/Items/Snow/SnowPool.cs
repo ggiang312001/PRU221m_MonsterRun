@@ -6,7 +6,7 @@ public class SnowPool : MonoBehaviour
 {
     private static SnowPool instance = null;
     public GameObject Snow; // The prefab to be pooled.
-    public int poolSize = 2; // The number of instances to be created initially.
+    public int poolSize = 20; // The number of instances to be created initially.
     public List<GameObject> pool;
     public static GameObject currentObject;
     public static SnowPool Instance

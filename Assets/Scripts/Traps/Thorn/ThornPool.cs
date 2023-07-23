@@ -7,7 +7,7 @@ public class ThornPool : MonoBehaviour
 {
     private static ThornPool instance = null;
     public GameObject Thorn; // The prefab to be pooled.
-    public int poolSize = 5; // The number of instances to be created initially.
+    public int poolSize = 50; // The number of instances to be created initially.
     public List<GameObject> pool;
     public static ThornPool Instance
     {

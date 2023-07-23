@@ -13,6 +13,7 @@ public class MineTrap : TrapController
         audio_manager.PlayColl();
         Instantiate<GameObject>(explosion, gameObject.transform.position, Quaternion.identity);
         GameObject.FindGameObjectWithTag("Player").transform.GetChild(0).gameObject.SetActive(true);
+        audio_manager.PlayFire();
         gameObject.SetActive(false);
     }
 

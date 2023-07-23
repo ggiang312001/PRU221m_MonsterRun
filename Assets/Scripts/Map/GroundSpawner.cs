@@ -28,7 +28,7 @@ public class GroundSpawner : MonoBehaviour
     void Start()
     {
         SpawnTime = gameObject.AddComponent<Timer>();
-        SpawnTime.Duration = 2f;
+        SpawnTime.Duration = 1.5f;
         SpawnTime.Run();
 
     }
@@ -41,7 +41,7 @@ public class GroundSpawner : MonoBehaviour
         if (SpawnTime.Finished)
         {
             SpawnGround();
-            SpawnTime.Duration = 2f;
+            SpawnTime.Duration = 1.5f;
             SpawnTime.Run();
         }
 
@@ -258,7 +258,7 @@ public class GroundSpawner : MonoBehaviour
         Vector3 position = ground.transform.GetChild(randomChild).transform.position;
         
         int random = 0;
-        int appearPercent = Random.Range(1, 6); // set tỉ lệ xuất hiện item: 20% xuất hiện item mỗi khi xuất hiện ground
+        int appearPercent = Random.Range(1, 5); // set tỉ lệ xuất hiện item: 20% xuất hiện item mỗi khi xuất hiện ground
         if (appearPercent == 1)
         {
             random = Random.Range(1, 4);
@@ -337,10 +337,10 @@ public class GroundSpawner : MonoBehaviour
         }
         else if(child > 10 && child <= 15)
         {
-            randomNum = Random.Range(1, 3);
+            randomNum = Random.Range(1, 4);
         }
         else{
-            randomNum = Random.Range(2, 4);
+            randomNum = Random.Range(2, 5);
         }
 
         // sinh bẫy

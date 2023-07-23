@@ -7,7 +7,7 @@ public class MinePool : MonoBehaviour
 {
     private static MinePool instance = null;
     public GameObject Mine; // The prefab to be pooled.
-    public int poolSize = 5; // The number of instances to be created initially.
+    public int poolSize = 50; // The number of instances to be created initially.
     public List<GameObject> pool;
 
     public static MinePool Instance

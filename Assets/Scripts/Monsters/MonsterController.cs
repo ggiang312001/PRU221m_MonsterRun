@@ -36,12 +36,17 @@ public class MonsterController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            GameObject audio = GameObject.FindGameObjectWithTag("audio");
+            Audio audio_manager = audio.GetComponent<Audio>();
             if (PlayerController.isLand == false)
             {
+                audio_manager.PlayCollider();
                 gameObject.SetActive(false);
             }
             else
             {
+               
+                audio_manager.PlayCollider();
                 hud.ReduceHealth();
             }
 

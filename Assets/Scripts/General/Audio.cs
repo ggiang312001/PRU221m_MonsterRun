@@ -9,6 +9,8 @@ public class Audio : MonoBehaviour
     AudioClip clipColl;
     AudioClip clipJump;
     AudioClip clipFire;
+    AudioClip clipBullet;
+    AudioClip clipCollider;
     void Awake()
     {
         audioSource = gameObject.AddComponent<AudioSource>();// audio Source
@@ -16,7 +18,17 @@ public class Audio : MonoBehaviour
         clipColl = Resources.Load<AudioClip>("Audio/bum");
         clipJump = Resources.Load<AudioClip>("Audio/jump");
         clipFire= Resources.Load<AudioClip>("Audio/fire1");
+        clipBullet = Resources.Load<AudioClip>("Audio/chiu");
+        clipCollider = Resources.Load<AudioClip>("Audio/collider");
 
+    }
+    public void PlayCollider()
+    {
+        audioSource.PlayOneShot(clipCollider);
+    }
+    public void PlayBullet()
+    {
+        audioSource.PlayOneShot(clipBullet);
     }
     public void PlayFire()
     {

@@ -6,7 +6,7 @@ public class WizardPool : MonoBehaviour
 {
     private static WizardPool instance = null;
     public GameObject Wizard; // The prefab to be pooled.
-    public int poolSize = 3; // The number of instances to be created initially.
+    public int poolSize = 30; // The number of instances to be created initially.
     public List<GameObject> pool;
 
     // Start is called before the first frame update

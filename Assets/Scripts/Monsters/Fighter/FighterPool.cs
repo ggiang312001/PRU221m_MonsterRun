@@ -6,7 +6,7 @@ public class FighterPool : MonoBehaviour
 {
     private static FighterPool instance = null;
     public GameObject Fighter; // The prefab to be pooled.
-    public int poolSize = 3; // The number of instances to be created initially.
+    public int poolSize = 30; // The number of instances to be created initially.
     public List<GameObject> pool;
 
     public static FighterPool Instance
