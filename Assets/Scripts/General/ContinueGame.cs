@@ -36,6 +36,11 @@ public class ContinueGame : MonoBehaviour
         SceneManager.LoadScene("SampleScene");
     }
 
+    public void HomeGame()
+    {
+        SceneManager.LoadScene("HomeScene");
+    }
+
     public void RestartGame()
     {
 

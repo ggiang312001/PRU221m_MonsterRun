@@ -19,7 +19,14 @@ public class SaveGame : MonoBehaviour
     {
         
     }
-
+    private static string GetFilePath(string FolderName, string FileName = "")
+    {
+        string filePath;
+        filePath = Path.Combine(Application.persistentDataPath,"data" ,FolderName);
+        if (FileName != "")
+            filePath = Path.Combine(filePath, FileName + ".json");
+        return filePath;
+    }
     public void Save()
     {
         SaveHealthAndTimeAndSpeed();
@@ -75,15 +82,24 @@ public class SaveGame : MonoBehaviour
         {
             items.Add(new Item { Type = "ground", Name = "shortground", x = item.transform.position.x, y = item.transform.position.y });
         }
-        
-        string path = Application.dataPath;
-        var json = JsonConvert.SerializeObject(items, Formatting.Indented);
-        File.WriteAllText($"{path}/Scripts/data/data.json", json);
+        //string filePath = Path.Combine(Application.persistentDataPath, "data.json");
 
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        Player playerSave = new Player { x = player.transform.position.x, y = player.transform.position.y };
-        var json1 = JsonConvert.SerializeObject(playerSave, Formatting.Indented);
-        File.WriteAllText($"{path}/Scripts/data/player.json", json1);
+        //string path = Application.dataPath + "/Scripts/data/data.json";
+        string filePath = "";
+        filePath = GetFilePath("data", "data");
+        if (!Directory.Exists(Path.GetDirectoryName(filePath)))
+        {
+            Directory.CreateDirectory(Path.GetDirectoryName(filePath));
+        }
+        Debug.Log(filePath);
+        var json = JsonConvert.SerializeObject(items, Formatting.Indented);
+
+        File.WriteAllText(filePath, json);
+
+        //GameObject player = GameObject.FindGameObjectWithTag("Player");
+        //Player playerSave = new Player { x = player.transform.position.x, y = player.transform.position.y };
+        //var json1 = JsonConvert.SerializeObject(playerSave, Formatting.Indented);
+        //File.WriteAllText($"{path}/Scripts/data/player.json", json1);
         SceneManager.LoadScene("HomeScene");
     }
 
