@@ -739,7 +739,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &257023904
 RectTransform:
   m_ObjectHideFlags: 0
@@ -842,9 +842,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2004737521}
-        m_TargetAssemblyTypeName: HUD, Assembly-CSharp
-        m_MethodName: Restart
+      - m_Target: {fileID: 783177827}
+        m_TargetAssemblyTypeName: ContinueGame, Assembly-CSharp
+        m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2367,7 +2367,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -124, y: -206}
+  m_AnchoredPosition: {x: 43, y: -199}
   m_SizeDelta: {x: 259.4274, y: 228.8489}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &715392024
