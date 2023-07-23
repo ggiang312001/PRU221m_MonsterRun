@@ -73,9 +73,14 @@ public class HUD : MonoBehaviour
     }
     public void ReduceHealth()
     {
-        if (health > 0 )
+        if (health >= 1)
         {
             health -= 1;
+            healthText.text = bouncePrefix + health.ToString();
+        }
+        if (health == 0)
+        {
+            GameOver();
             healthText.text = bouncePrefix + health.ToString();
         }
 
