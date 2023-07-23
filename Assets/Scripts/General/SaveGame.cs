@@ -1,6 +1,5 @@
 using Assets.Scripts.ObjectSave;
 using Newtonsoft.Json;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
@@ -91,7 +90,6 @@ public class SaveGame : MonoBehaviour
         {
             Directory.CreateDirectory(Path.GetDirectoryName(filePath));
         }
-        Debug.Log(filePath);
         var json = JsonConvert.SerializeObject(items, Formatting.Indented);
 
         File.WriteAllText(filePath, json);
