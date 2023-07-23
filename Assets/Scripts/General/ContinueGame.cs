@@ -23,6 +23,7 @@ public class ContinueGame : MonoBehaviour
     public void Continue()
     {
         LoadGameSave.isLoadFinish = false;
+        isStart = false;
         isContinue = true;
         SceneManager.LoadScene("SampleScene");
     }
@@ -30,6 +31,7 @@ public class ContinueGame : MonoBehaviour
     {
 
         isStart = true;
+        isContinue = false;
         Time.timeScale = 1;
         SceneManager.LoadScene("SampleScene");
     }
