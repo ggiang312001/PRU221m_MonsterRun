@@ -38,7 +38,7 @@ public class LoadGameSave : MonoBehaviour
             GameObject StartGround = GameObject.FindGameObjectWithTag("Ground");
             StartGround.SetActive(false);
             string path = Application.dataPath;
-            string jsonFilePath = $"{path}/Scripts/data.txt";
+            string jsonFilePath = $"{path}/Scripts/data/data.json";
             string json = File.ReadAllText(jsonFilePath);
             var objs = JsonConvert.DeserializeObject<List<Item>>(json);
             float max = 0;
@@ -121,7 +121,7 @@ public class LoadGameSave : MonoBehaviour
                         }
                     }
                 }
-                string jsonFilePath1 = $"{path}/Scripts/player.txt";
+                string jsonFilePath1 = $"{path}/Scripts/data/player.json";
                 string json1 = File.ReadAllText(jsonFilePath1);
                 var player = JsonConvert.DeserializeObject<Player>(json1);
                 GameObject playerLoad = GameObject.FindGameObjectWithTag("Player");

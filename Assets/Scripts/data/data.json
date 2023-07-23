@@ -1,0 +1,62 @@
+[
+  {
+    "Type": "trap",
+    "Name": "fire",
+    "x": 6.656102,
+    "y": -0.89590615
+  },
+  {
+    "Type": "trap",
+    "Name": "mine",
+    "x": 7.5361,
+    "y": -1.24590611
+  },
+  {
+    "Type": "trap",
+    "Name": "thorn",
+    "x": 14.9661036,
+    "y": -1.29590607
+  },
+  {
+    "Type": "trap",
+    "Name": "thorn",
+    "x": 18.7361031,
+    "y": -1.29590607
+  },
+  {
+    "Type": "trap",
+    "Name": "thorn",
+    "x": 31.9923058,
+    "y": 1.45391917
+  },
+  {
+    "Type": "monter",
+    "Name": "fighter",
+    "x": 17.5061035,
+    "y": -1.04590607
+  },
+  {
+    "Type": "monter",
+    "Name": "fighter",
+    "x": 30.8822975,
+    "y": 1.70391917
+  },
+  {
+    "Type": "ground",
+    "Name": "mediumground",
+    "x": -16.5220776,
+    "y": -1.68
+  },
+  {
+    "Type": "ground",
+    "Name": "longground",
+    "x": 1.476094,
+    "y": -0.515906155
+  },
+  {
+    "Type": "ground",
+    "Name": "shortground",
+    "x": 23.9022789,
+    "y": 2.23391914
+  }
+]

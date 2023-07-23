@@ -3,7 +3,6 @@ using Newtonsoft.Json;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
-using UnityEditorInternal.VersionControl;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -79,12 +78,12 @@ public class SaveGame : MonoBehaviour
         
         string path = Application.dataPath;
         var json = JsonConvert.SerializeObject(items, Formatting.Indented);
-        File.WriteAllText($"{path}/Scripts/data.txt", json);
+        File.WriteAllText($"{path}/Scripts/data/data.json", json);
 
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         Player playerSave = new Player { x = player.transform.position.x, y = player.transform.position.y };
         var json1 = JsonConvert.SerializeObject(playerSave, Formatting.Indented);
-        File.WriteAllText($"{path}/Scripts/player.txt", json1);
+        File.WriteAllText($"{path}/Scripts/data/player.json", json1);
         SceneManager.LoadScene("HomeScene");
     }
 
