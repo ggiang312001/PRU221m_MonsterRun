@@ -33,9 +33,7 @@ public class BulletController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            GameObject audio = GameObject.FindGameObjectWithTag("audio");
-            Audio audio_manager = audio.GetComponent<Audio>();
-            audio_manager.PlayCollider();
+            AudioManager.Play(AudioClipName.Collider);
             hud.ReduceHealth();
             transform.gameObject.SetActive(false);
             List<GameObject> listFighters = WizardExplosionPool.pool;
@@ -45,6 +43,7 @@ public class BulletController : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Shield"))
         {
+            AudioManager.Play(AudioClipName.Collider);
             ShieldActive.Instance.ShieldCount -= 1;
             gameObject.SetActive(false);
             GameObject explosion = WizardExplosionPool.GetObject(); // Lấy trap từ pool

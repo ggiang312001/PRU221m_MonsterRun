@@ -8,12 +8,10 @@ public class MineTrap : TrapController
     GameObject explosion;
     protected override void InteractWithPlayer()
     {
-        GameObject audio = GameObject.FindGameObjectWithTag("audio");
-        Audio audio_manager = audio.GetComponent<Audio>();
-        audio_manager.PlayColl();
+        AudioManager.Play(AudioClipName.Bum);
         Instantiate<GameObject>(explosion, gameObject.transform.position, Quaternion.identity);
         GameObject.FindGameObjectWithTag("Player").transform.GetChild(0).gameObject.SetActive(true);
-        audio_manager.PlayFire();
+        AudioManager.Play(AudioClipName.FireDamage);
         gameObject.SetActive(false);
     }
 

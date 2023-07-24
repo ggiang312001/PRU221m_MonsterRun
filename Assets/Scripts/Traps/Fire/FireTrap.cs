@@ -6,9 +6,10 @@ public class FireTrap : TrapController
 {
     protected override void InteractWithPlayer()
     {
-        GameObject audio = GameObject.FindGameObjectWithTag("audio");
-        Audio audio_manager = audio.GetComponent<Audio>();
-        audio_manager.PlayFire();
+        //GameObject audio = GameObject.FindGameObjectWithTag("audio");
+        //Audio audio_manager = audio.GetComponent<Audio>();
+        //audio_manager.PlayFire();
+        AudioManager.Play(AudioClipName.FireDamage);
         GameObject.FindGameObjectWithTag("Player").transform.GetChild(0).gameObject.SetActive(true);
     }
 

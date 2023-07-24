@@ -36,23 +36,23 @@ public class MonsterController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            GameObject audio = GameObject.FindGameObjectWithTag("audio");
-            Audio audio_manager = audio.GetComponent<Audio>();
+            AudioManager.Play(AudioClipName.Collider);
             if (PlayerController.isLand == false)
             {
-                audio_manager.PlayCollider();
+                //audio_manager.PlayCollider();
                 gameObject.SetActive(false);
             }
             else
             {
                
-                audio_manager.PlayCollider();
+                //audio_manager.PlayCollider();
                 hud.ReduceHealth();
             }
 
         }
         if (collision.gameObject.CompareTag("Shield"))
         {
+            AudioManager.Play(AudioClipName.Collider);
             ShieldActive.Instance.ShieldCount -= 1;
             gameObject.SetActive(false);
         }

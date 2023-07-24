@@ -15,6 +15,7 @@ public abstract class TrapController : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Shield"))
         {
+            AudioManager.Play(AudioClipName.Collider);
             ShieldActive.Instance.ShieldCount -= 1;
             gameObject.SetActive(false);
         }

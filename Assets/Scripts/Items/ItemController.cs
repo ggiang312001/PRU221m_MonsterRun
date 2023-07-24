@@ -10,9 +10,7 @@ public abstract class ItemController : MonoBehaviour
         if (collision.gameObject.tag.Equals("Player"))
         {
             InteractWithPlayer();
-            GameObject audio = GameObject.FindGameObjectWithTag("audio");
-            Audio audio_manager = audio.GetComponent<Audio>();
-            audio_manager.PlayCollectItem();
+            AudioManager.Play(AudioClipName.ItemCollect);
         }
     }
 
