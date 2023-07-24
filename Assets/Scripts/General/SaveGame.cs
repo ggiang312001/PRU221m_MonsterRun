@@ -28,6 +28,7 @@ public class SaveGame : MonoBehaviour
     }
     public void Save()
     {
+        AudioManager.Play(AudioClipName.Button);
         SaveHealthAndTimeAndSpeed();
         GameObject[] ground1 = GameObject.FindGameObjectsWithTag("Ground");
         GameObject[] ground2 = GameObject.FindGameObjectsWithTag("Ground2");

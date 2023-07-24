@@ -9,5 +9,5 @@ public enum AudioClipName
     Bum,
     Collider,
     Run,
-    //TeddyShot
+    Button,
 }

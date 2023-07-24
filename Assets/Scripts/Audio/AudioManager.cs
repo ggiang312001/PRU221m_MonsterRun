@@ -38,8 +38,8 @@ public static class AudioManager
              Resources.Load<AudioClip>("Audio/bum"));
         audioClips.Add(AudioClipName.Collider,
              Resources.Load<AudioClip>("Audio/vacham"));
-        //audioClips.Add(AudioClipName.Run,
-        //      Resources.Load<AudioClip>("Audio/run"));
+        audioClips.Add(AudioClipName.Button,
+              Resources.Load<AudioClip>("Audio/button"));
         //audioClips.Add(AudioClipName.TeddyShot,
         //    Resources.Load<AudioClip>("TeddyShot"));
     }
@@ -52,4 +52,6 @@ public static class AudioManager
     {
         audioSource.PlayOneShot(audioClips[name]);
     }
+
+
 }

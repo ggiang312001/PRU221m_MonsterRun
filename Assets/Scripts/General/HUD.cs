@@ -47,12 +47,14 @@ public class HUD : MonoBehaviour
 
     public void PauseGame()
     {
+        AudioManager.Play(AudioClipName.Button);
         Time.timeScale = 0;
         pauseMenu.SetActive(true);
     }
 
     public void ResumeGame()
     {
+        AudioManager.Play(AudioClipName.Button);
         Time.timeScale = 1;
         pauseMenu.SetActive(false);
     }

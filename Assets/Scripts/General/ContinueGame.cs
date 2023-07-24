@@ -22,6 +22,7 @@ public class ContinueGame : MonoBehaviour
 
     public void Continue()
     {
+        AudioManager.Play(AudioClipName.Button);
         LoadGameSave.isLoadFinish = false;
         isStart = false;
         isContinue = true;
@@ -29,7 +30,7 @@ public class ContinueGame : MonoBehaviour
     }
     public void StartGame()
     {
-
+        AudioManager.Play(AudioClipName.Button);
         isStart = true;
         isContinue = false;
         Time.timeScale = 1;
