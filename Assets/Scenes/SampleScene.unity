@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Snow: {fileID: 48257348407049923, guid: 4ff3d168489ae5c41a75797766cfad10, type: 3}
-  poolSize: 2
+  poolSize: 30
   pool: []
 --- !u!4 &23775910
 Transform:
@@ -569,7 +569,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Explosion: {fileID: 1827852449000547434, guid: daa2a54a315d355498d74f00d0b456ec, type: 3}
-  poolSize: 5
+  poolSize: 60
   pool: []
 --- !u!1 &209418880
 GameObject:
@@ -601,7 +601,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Thorn: {fileID: 6581211537895082195, guid: c71457783a4555842b2297f3945a3d6f, type: 3}
-  poolSize: 5
+  poolSize: 60
   pool: []
 --- !u!4 &209418882
 Transform:
@@ -2411,7 +2411,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Fighter: {fileID: 2390456111254945712, guid: 0fb8dfa2391999442ba4363ed0fd4569, type: 3}
-  poolSize: 3
+  poolSize: 30
   pool: []
 --- !u!1 &715392022
 GameObject:
@@ -3131,7 +3131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Wizard: {fileID: 4225264348852287559, guid: 0f5296420f6928449a8cb8ee99da6d63, type: 3}
-  poolSize: 3
+  poolSize: 30
   pool: []
 --- !u!1 &890473168 stripped
 GameObject:
@@ -3217,7 +3217,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Fire: {fileID: 1927003967465678277, guid: 7781ee7d6f001ad49b811e39dc503fdc, type: 3}
-  poolSize: 5
+  poolSize: 60
   pool: []
 --- !u!4 &907270927
 Transform:
@@ -4852,7 +4852,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Mine: {fileID: 3459028154823532149, guid: e1076f3c85acd8847a5b377b48e703ea, type: 3}
-  poolSize: 5
+  poolSize: 60
   pool: []
 --- !u!4 &1536405059
 Transform:
@@ -4991,7 +4991,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Bullet: {fileID: 1967477692841412217, guid: 6f4f05398445694478efc8607ef95f53, type: 3}
-  poolSize: 5
+  poolSize: 60
   pool: []
 --- !u!1 &1570924658
 GameObject:
@@ -5553,7 +5553,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Shield: {fileID: 0}
-  poolSize: 2
+  poolSize: 30
   pool: []
 --- !u!1 &1857055677
 GameObject:
@@ -5585,7 +5585,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Heart: {fileID: 2963292901526794613, guid: a060347cf30166a4890a4c109c8d8be1, type: 3}
-  poolSize: 2
+  poolSize: 30
   pool: []
 --- !u!4 &1857055679
 Transform:
